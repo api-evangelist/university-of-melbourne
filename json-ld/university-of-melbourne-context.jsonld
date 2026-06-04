@@ -1,0 +1,84 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "uom": "https://www.unimelb.edu.au/ns#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "oai": "http://www.openarchives.org/OAI/2.0/",
+    "@vocab": "https://www.unimelb.edu.au/ns#",
+
+    "University": "schema:CollegeOrUniversity",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "logo": "schema:logo",
+    "sameAs": "schema:sameAs",
+    "foundingDate": "schema:foundingDate",
+    "address": "schema:address",
+    "department": "schema:department",
+
+    "apis": {
+      "@id": "uom:hasAPI",
+      "@container": "@set"
+    },
+    "API": "schema:WebAPI",
+    "baseURL": "schema:url",
+    "humanURL": "schema:documentation",
+    "tags": "schema:keywords",
+
+    "Repository": "schema:DataCatalog",
+    "Collection": {
+      "@id": "schema:Collection",
+      "comment": "DSpace community/collection grouping items in Minerva Access"
+    },
+    "Item": {
+      "@id": "schema:CreativeWork",
+      "comment": "A DSpace item (article, thesis, dataset) in Minerva Access"
+    },
+    "Bitstream": "schema:MediaObject",
+    "metadata": "schema:additionalProperty",
+    "title": "dcterms:title",
+    "creator": "dcterms:creator",
+    "subject": "dcterms:subject",
+    "identifier": "dcterms:identifier",
+    "issued": "dcterms:issued",
+    "publisher": "dcterms:publisher",
+    "rights": "dcterms:rights",
+    "setName": "oai:setName",
+    "setSpec": "oai:setSpec",
+
+    "Dataset": "schema:Dataset",
+    "spatialCoverage": "schema:spatialCoverage",
+    "distribution": "schema:distribution",
+    "encodingFormat": "schema:encodingFormat"
+  },
+  "@type": "University",
+  "@id": "https://www.unimelb.edu.au/",
+  "name": "The University of Melbourne",
+  "description": "Australia's leading research university, ranked #24 in the QS World University Rankings 2025. Public API footprint is federated across the Minerva Access institutional repository (DSpace 7.6 REST + OAI-PMH) and an ArcGIS Hub open spatial-data portal.",
+  "url": "https://www.unimelb.edu.au/",
+  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "sameAs": [
+    "https://github.com/unimelb",
+    "https://au.linkedin.com/school/university-of-melbourne/"
+  ],
+  "apis": [
+    {
+      "@type": "API",
+      "name": "Minerva Access OAI-PMH",
+      "baseURL": "https://minerva-access.unimelb.edu.au/server/oai/request",
+      "humanURL": "https://minerva-access.unimelb.edu.au/"
+    },
+    {
+      "@type": "API",
+      "name": "Minerva Access DSpace REST API",
+      "baseURL": "https://minerva-access.unimelb.edu.au/server/api",
+      "humanURL": "https://minerva-access.unimelb.edu.au/"
+    },
+    {
+      "@type": "API",
+      "name": "Open Spatial Data Portal (ArcGIS Hub)",
+      "humanURL": "https://spatialdata-uom.opendata.arcgis.com/"
+    }
+  ]
+}

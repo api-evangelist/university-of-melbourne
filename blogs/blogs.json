@@ -1,0 +1,21 @@
+{
+  "repo": "university-of-melbourne",
+  "feeds": [
+    {
+      "source": "https://pursuit.unimelb.edu.au/",
+      "feed_url": "https://pursuit.unimelb.edu.au/",
+      "title": "Pursuit - University of Melbourne",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://www.unimelb.edu.au/newsroom",
+      "feed_url": "https://www.unimelb.edu.au/newsroom",
+      "title": "University of Melbourne Newsroom",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-06-03T00:00:00Z"
+}
