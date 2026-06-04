@@ -1,0 +1,43 @@
+---
+name: University of Melbourne
+description: University of Melbourne public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 2
+    summary: >-
+      Verified live: the Minerva Access institutional repository (DSpace 7.6)
+      exposes a working public OAI-PMH 2.0 interface and a self-describing
+      DSpace REST/HAL API, and the ArcGIS Hub open spatial-data portal is
+      reachable with standard ArcGIS query/download APIs. The university also
+      runs an internal Boomi API management developer portal for staff/students,
+      but it is gated and not publicly documented, so no endpoints were
+      confirmed. Central SSO (Okta, OAuth2/OIDC) exists but offers no public API
+      program. An official GitHub org (github.com/unimelb) exists with mostly
+      archived repos. No fabricated endpoints — only URLs probed live are
+      recorded below. The institution's homepage returns 403 to automated
+      clients (bot protection) though it serves normally in a browser.
+    endpoints:
+      - url: https://minerva-access.unimelb.edu.au/server/oai/request?verb=Identify
+        status: 200
+        note: Live OAI-PMH; repositoryName "The University of Melbourne Library Digital Repository".
+      - url: https://minerva-access.unimelb.edu.au/server/api
+        status: 200
+        note: DSpace 7.6 REST API root, HAL+JSON self-describing links.
+      - url: https://minerva-access.unimelb.edu.au/
+        status: 200
+        note: Minerva Access repository UI / human landing page.
+      - url: https://spatialdata-uom.opendata.arcgis.com/
+        status: 200
+        note: Open spatial-data portal (ArcGIS Hub) for campus GIS layers.
+      - url: https://github.com/unimelb
+        status: 200
+        note: Official GitHub org, 18 repos, mostly archived.
+      - url: https://www.unimelb.edu.au/
+        status: 403
+        note: Official website; 403 to automated client (bot protection), serves in browser.
+      - url: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
+        status: 200
+        note: Vendor case study describing the gated internal Boomi API portal.
