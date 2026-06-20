@@ -57,7 +57,7 @@
   "name": "The University of Melbourne",
   "description": "Australia's leading research university, ranked #24 in the QS World University Rankings 2025. Public API footprint is federated across the Minerva Access institutional repository (DSpace 7.6 REST + OAI-PMH) and an ArcGIS Hub open spatial-data portal.",
   "url": "https://www.unimelb.edu.au/",
-  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "logo": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
   "sameAs": [
     "https://github.com/unimelb",
     "https://au.linkedin.com/school/university-of-melbourne/"
