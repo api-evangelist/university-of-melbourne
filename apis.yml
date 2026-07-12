@@ -87,6 +87,10 @@ apis:
       - type: Documentation
         url: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/university-of-melbourne-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/university-of-melbourne-domain-security.yml
   - type: Website
     url: https://www.unimelb.edu.au/
   - type: GitHub
