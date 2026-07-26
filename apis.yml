@@ -1,4 +1,3 @@
----
 aid: university-of-melbourne
 name: University of Melbourne
 description: >-
@@ -15,9 +14,21 @@ description: >-
   public API program is offered there. An official GitHub organization
   (github.com/unimelb) exists with mostly archived projects.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+    - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-melbourne.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/apis.yml
 tags:
   - Education
@@ -29,36 +40,9 @@ tags:
   - Library
   - Repository
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-07-25'
 specificationVersion: '0.19'
 apis:
-  - aid: university-of-melbourne:minerva-oai
-    name: Minerva Access OAI-PMH
-    description: >-
-      Public OAI-PMH 2.0 metadata-harvesting interface for Minerva Access, the
-      University of Melbourne Library Digital Repository (DSpace 7.6). Supports
-      standard OAI verbs (Identify, ListRecords, ListSets, GetRecord, etc.) for
-      harvesting metadata on journal articles, theses, conference papers,
-      reports, books and datasets. Verified live (HTTP 200).
-    humanURL: https://minerva-access.unimelb.edu.au/
-    baseURL: https://minerva-access.unimelb.edu.au/server/oai/request
-    tags: [ Repository, OAI-PMH, Library, Metadata, Open Data, DSpace ]
-    properties:
-      - type: Documentation
-        url: https://minerva-access.unimelb.edu.au/
-  - aid: university-of-melbourne:minerva-rest
-    name: Minerva Access DSpace REST API
-    description: >-
-      DSpace 7.6 REST/HAL API backing the Minerva Access institutional
-      repository, exposing communities, collections, items and bitstreams as
-      HAL+JSON resources. The API root is publicly reachable and self-describes
-      its endpoints. Verified live (HTTP 200).
-    humanURL: https://minerva-access.unimelb.edu.au/
-    baseURL: https://minerva-access.unimelb.edu.au/server/api
-    tags: [ Repository, REST, Library, DSpace, Open Data, Research ]
-    properties:
-      - type: Documentation
-        url: https://minerva-access.unimelb.edu.au/
   - aid: university-of-melbourne:spatial-open-data
     name: Open Spatial Data Portal (ArcGIS Hub)
     description: >-
@@ -68,7 +52,7 @@ apis:
       Hub / ArcGIS REST query and download APIs (GeoJSON, CSV, Shapefile, KML).
       Portal verified live (HTTP 200).
     humanURL: https://spatialdata-uom.opendata.arcgis.com/
-    tags: [ Open Data, GIS, Geospatial, ArcGIS, Spatial ]
+    tags: [Open Data, GIS, Geospatial, ArcGIS, Spatial]
     properties:
       - type: Documentation
         url: https://spatialdata-uom.opendata.arcgis.com/
@@ -82,7 +66,7 @@ apis:
       could be confirmed. Listed here honestly as a known but non-public API
       surface.
     humanURL: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
-    tags: [ API Management, Boomi, Internal, Gated ]
+    tags: [API Management, Boomi, Internal, Gated]
     properties:
       - type: Documentation
         url: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
@@ -107,6 +91,8 @@ common:
     url: finops/university-of-melbourne-finops.yml
   - type: Review
     url: review.yml
+  - type: ProductPage
+    url: https://minerva-access.unimelb.edu.au/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
