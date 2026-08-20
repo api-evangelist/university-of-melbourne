@@ -218,7 +218,19 @@ apis:
       surface under the institution's own domain is a real fact about it, and
       credited to Okta because the contract is Okta's.
     humanURL: https://sso.unimelb.edu.au/.well-known/openid-configuration
-    tags: [Authentication, OpenID Connect, OAuth, Okta, SSO, Tenant]
+    tags:
+    - Authentication
+    - OpenID Connect
+    - Okta
+    - SSO
+    - Tenant
+    tags_raw:
+    - Authentication
+    - OpenID Connect
+    - OAuth
+    - Okta
+    - SSO
+    - Tenant
     properties:
       - type: Scopes
         url: scopes/university-of-melbourne-scopes.yml
