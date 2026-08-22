@@ -33,6 +33,28 @@
 > **Response times.** Acknowledgement within **one business day**; removal or restriction within
 > **two business days**; corrections and re-scores within **five business days**.
 >
+> **Not from the company, and here with a question?** You are welcome here — we would rather be the
+> front line and point you the right way than have a good report go nowhere. What this repository
+> can answer is narrow, though, so it is worth knowing who you are actually looking for:
+>
+> - **A question about how the API works, an account, billing, or a bug in the service** — that is
+>   the company's own support, not us. We profile this API; we do not operate it and cannot see
+>   your account.
+> - **A bug in an open-source project we only catalog** — file it on that project's own repository.
+>   This has happened with a real and correct bug report that reached us instead of the people who
+>   could fix it, which helped nobody.
+> - **Anything about this listing itself** — the description, the tags, the rating, a missing or
+>   wrong artifact — is ours. Open an issue here.
+> - **Not sure, or something general about API Evangelist or APIs.io** — open an issue on the
+>   [APIs.io Inbox](https://github.com/api-search/inbox) and we will route it.
+>
+> **This repository contains no software, and we will never ask you to download anything.** There is
+> no build, release, installer, or binary here — only text and machine-readable API descriptions, so
+> there is nothing here that can be "corrupt" or need "repairing". Any issue, comment, or email
+> claiming otherwise and offering a download link is not from us and is hostile. Do not follow the
+> link; it is a lure. Report it to GitHub and, if you like, tell us at
+> [info@apievangelist.com](mailto:info@apievangelist.com) so we can take it down.
+>
 > **On a security or compliance team?** Email
 > [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
 > you will get a person, not a form. We will tell you exactly which public URLs this profile was
@@ -42,53 +64,106 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The University of Melbourne is Australia's leading research university, ranked #24 in the QS World University Rankings 2025. Its public developer and API footprint is modest and federated: the Library runs the Minerva Access institutional repository (DSpace 7.6) with public OAI-PMH and REST APIs, and the institution publishes campus GIS data through an ArcGIS Hub open spatial-data portal. An internal Boomi-based API management developer portal exists for staff and students but is gated and not publicly documented.
+The University of Melbourne is Australia's leading research university, a Group of Eight member
+founded in 1853. Re-profiled on **2026-08-19** under the API Evangelist **university pipeline**,
+which settles **who operates each surface** before saving anything — because at a university almost
+every apparent API is a vendor contract running under the institution's name.
 
 - APIs.json: https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=university-of-melbourne-api-evangelist&utm_content=repo
 
 ## Type
 
-Index / Consumer / 3rd-Party
+`x-type: university` / `x-category: Public Research University` / Provider / Public
 
 ## Tags
 
-Education, Higher Education, University, Australia, Open Data, Research, Library, Repository
+University, Higher Education, Education, Australia, Group of Eight, Research, Research Data,
+Research Repository, Open Data, Geospatial, Identity Federation, Library
 
-## APIs
+## Surfaces, by operator
 
-- **Minerva Access OAI-PMH** — Public OAI-PMH 2.0 metadata-harvesting interface for the University Library Digital Repository (DSpace 7.6). Docs: https://minerva-access.unimelb.edu.au/ — base URL `https://minerva-access.unimelb.edu.au/server/oai/request`
-- **Minerva Access DSpace REST API** — DSpace 7.6 REST/HAL API exposing communities, collections, items and bitstreams. Docs: https://minerva-access.unimelb.edu.au/ — base URL `https://minerva-access.unimelb.edu.au/server/api`
-- **Open Spatial Data Portal (ArcGIS Hub)** — Campus GIS layers (buildings, roads, tree canopy) via standard ArcGIS Hub query/download APIs. Docs: https://spatialdata-uom.opendata.arcgis.com/
-- **Internal API Management Developer Portal (Boomi) — Gated** — Self-service internal data APIs for staff/students; gated behind university authentication, not publicly documented. Reference: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
+Every entry in `apis.yml` carries an `x-operator`. Four are the institution's own; four are
+tenancies on someone else's platform, recorded as relationships with **no vendor contract saved
+under this slug**.
 
-## Plans
+### `x-operator: institution` — the University runs these
 
-- plans/university-of-melbourne-plans-pricing.yml
+| Surface | Base URL | Verified 2026-08-19 |
+|---|---|---|
+| **Spatial Urban Data Observatory (SUDO)** — GeoNode, 7,417 spatial datasets, unauthenticated | `https://sudo.eresearch.unimelb.edu.au/api/v2` | 200, `total: 7417` |
+| **Minerva Access REST API** — self-hosted DSpace 7.6, 223 communities | `https://minerva-access.unimelb.edu.au/server/api` | 200 `application/hal+json` |
+| **Minerva Access OAI-PMH 2.0** — 14 metadata formats, two locally built | `https://minerva-access.unimelb.edu.au/server/oai/request` | 200 `text/xml` |
+| **Shibboleth Identity Provider** — SAML 2.0 metadata, registered in AAF/eduGAIN | `https://idp.unimelb.edu.au/idp/shibboleth` | 200 `application/xml` |
 
-## Rate Limits
+### `x-operator: tenant` — the University's data, someone else's contract
 
-- rate-limits/university-of-melbourne-rate-limits.yml
+| Surface | Platform | Evidence |
+|---|---|---|
+| **Melbourne Data** `melbourne.figshare.com` | Figshare (Digital Science) | DataCite client `UNIMELB.REPO1` |
+| **Open Spatial Data Portal** `spatialdata-uom.opendata.arcgis.com` | Esri ArcGIS Hub | DCAT-US 1.1 feed + OGC API Records, both 200 |
+| **University SSO** `sso.unimelb.edu.au` | Okta Identity Cloud | OIDC discovery + RFC 8414 metadata, both 200 |
+| **Internal API programme** | Boomi | Vendor case study only — no institutional URL exists |
 
-## FinOps
+## What is actually notable here
 
-- finops/university-of-melbourne-finops.yml
+1. **SUDO is real, and nobody has catalogued it.** An open, unauthenticated JSON API over 7,417
+   spatial datasets, run by the University on its own host. It is also **broken in two ways** we
+   record rather than smooth over: the TLS certificate is issued for
+   `staging.unimelb-sudo.cloud.edu.au` and matches no other name, so a conformant client cannot
+   connect; and `/api/v2/categories` times out at 60s while sibling collections answer normally.
+2. **The OAI-PMH endpoint proves institutional engineering.** Of fourteen metadata formats, two are
+   the University's own — `umbl` (University of Melbourne Library) and a `trove` crosswalk into the
+   National Library of Australia under a `uom` namespace path. Neither ships with stock DSpace.
+   That is the difference between running a package and operating a surface.
+3. **The identity federation is the find most university profiles miss.** A self-hosted Shibboleth
+   IdP with public SAML 2.0 metadata, registered in the Australian Access Federation alongside ten
+   other `unimelb.edu.au` entities. Institution-operated by definition, machine-readable, and
+   almost never listed anywhere.
+4. **No Figshare contract is stored here.** `api.figshare.com/v2` was attributed to 25 institutions
+   in the June 2026 cohort. Melbourne's Figshare relationship is recorded as a tenancy and the
+   vendor's specification stays in the vendor's repository.
+
+## What the University does not publish
+
+No OpenAPI or any machine-readable contract for anything it runs (GeoNode's own `/api/v2/openapi`
+returns 404 on this deployment). No developer portal — `api.`, `developer.` and `data.unimelb.edu.au`
+do not resolve. No changelog, no status page, no rate-limit signal, no support channel for any
+surface. No public course-catalog or timetable API. Three surfaces use three different error
+conventions and none is RFC 9457; OAI-PMH reports failure with HTTP 200, which is
+specification-correct and worth knowing before you write a harvester.
+
+**The three OpenAPI documents in `openapi/` are ours**, marked `method: derived`, built only from
+endpoints that returned 200 on 2026-08-19. They must never be read as contracts the University
+publishes.
+
+## Artifacts
+
+| Directory | What is in it | Method |
+|---|---|---|
+| `openapi/` + `openapi/_original/` | 3 derived contracts (SUDO, DSpace REST, OAI-PMH) | derived |
+| `json-schema/` | SUDO dataset, Minerva Access community | derived |
+| `examples/` | 8 verbatim live captures, each with its request and status | probed |
+| `conformance/` | `education` regime standards: **oai-pmh, shibboleth, saml** confirmed institution-side, **datacite** confirmed tenant-side | probed |
+| `authentication/` | per-surface auth posture, split by operator | probed |
+| `scopes/` | the Okta OIDC scope set — marked `x-operator: tenant` | probed |
+| `errors/` | three error conventions + the TLS and timeout defects + a soft-404 | probed |
+| `vocabulary/` | the 14 OAI-PMH metadata formats, local ones called out | probed |
+| `rules/` | 10 governance rules with the observed result for each | derived |
+| `lifecycle/` | version signals + ~60 unprobed DSpace link relations, listed not invented | probed |
+| `json-ld/` | organization record with ROR `01ej9dk98`, GRID, ISNI, Wikidata, Handle prefix 11343 | searched |
+
+## Coverage
+
+`x-coverage.state: covered`. Real probes ran and found real institution-operated surfaces. What is
+thin here is documentation, not surface. Two probe limitations are declared in `apis.yml`: the whole
+`*.unimelb.edu.au` marketing and student web estate sits behind Cloudflare bot management and
+returned HTTP 403 to every client tried (recorded as live-but-unreadable, never dead), and SUDO
+could only be reached with certificate verification disabled.
 
 ## Timestamps
 
 - Created: 2026-06-03
-- Modified: 2026-06-03
-
-## Common Properties
-
-- Website: https://www.unimelb.edu.au/
-- GitHub: https://github.com/unimelb
-- LinkedIn: https://au.linkedin.com/school/university-of-melbourne/
-- Authentication (SSO): https://sso.unimelb.edu.au/
-
-## Notes
-
-All endpoints listed were verified live where possible. The Minerva Access OAI-PMH and DSpace REST roots and the ArcGIS Hub spatial portal returned HTTP 200 on 2026-06-03. The official website (https://www.unimelb.edu.au/) returns 403 to automated clients due to bot protection but serves normally in a browser. The Boomi developer portal is referenced from a public vendor case study but is gated; no public endpoints were confirmed and none were invented. Central SSO uses Okta with OAuth 2.0 / OpenID Connect but exposes no public API program. See review.yml for the full probe log.
+- Modified: 2026-08-19
 
 ## Maintainers
 
