@@ -8,7 +8,7 @@
       "saved": 0,
       "method": "none",
       "note": "HTTP 403 Forbidden",
-      "error": "fetch_failed: HTTPError"
+      "error": "parse_failed"
     },
     {
       "source": "https://www.unimelb.edu.au/newsroom",
@@ -17,9 +17,9 @@
       "saved": 0,
       "method": "none",
       "note": "HTTP 403 Forbidden",
-      "error": "fetch_failed: HTTPError"
+      "error": "parse_failed"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-08-15T12:11:08Z"
+  "fetched": "2026-08-22T20:08:02Z"
 }
