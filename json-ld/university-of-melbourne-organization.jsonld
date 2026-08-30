@@ -1,0 +1,71 @@
+{
+  "@context": "https://schema.org",
+  "@type": "CollegeOrUniversity",
+  "@id": "https://ror.org/01ej9dk98",
+  "name": "The University of Melbourne",
+  "alternateName": ["University of Melbourne", "Unimelb", "UoM"],
+  "url": "https://www.unimelb.edu.au/",
+  "foundingDate": "1853",
+  "identifier": [
+    { "@type": "PropertyValue", "propertyID": "ROR", "value": "https://ror.org/01ej9dk98" },
+    { "@type": "PropertyValue", "propertyID": "GRID", "value": "grid.1008.9" },
+    { "@type": "PropertyValue", "propertyID": "ISNI", "value": "0000 0001 2179 088X" },
+    { "@type": "PropertyValue", "propertyID": "Wikidata", "value": "Q319078" },
+    { "@type": "PropertyValue", "propertyID": "Crossref Funder ID", "value": "501100001782" },
+    { "@type": "PropertyValue", "propertyID": "DataCite client", "value": "UNIMELB.REPO1" },
+    { "@type": "PropertyValue", "propertyID": "SAML entityID", "value": "https://idp.unimelb.edu.au/idp/shibboleth" },
+    { "@type": "PropertyValue", "propertyID": "Handle prefix", "value": "11343" }
+  ],
+  "sameAs": [
+    "https://ror.org/01ej9dk98",
+    "https://www.wikidata.org/wiki/Q319078",
+    "https://en.wikipedia.org/wiki/University_of_Melbourne",
+    "https://github.com/unimelb",
+    "https://au.linkedin.com/school/university-of-melbourne/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Parkville",
+    "addressRegion": "Victoria",
+    "addressCountry": "AU"
+  },
+  "subOrganization": [
+    {
+      "@type": "DataCatalog",
+      "name": "Minerva Access",
+      "description": "University of Melbourne Library Digital Repository, DSpace 7.6, institution-operated.",
+      "url": "https://minerva-access.unimelb.edu.au/",
+      "x-operator": "institution",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://minerva-access.unimelb.edu.au/server/oai/request?verb=ListRecords&metadataPrefix=oai_dc"
+      }
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "Spatial Urban Data Observatory (SUDO)",
+      "description": "Institution-operated GeoNode deployment; 7,417 spatial datasets over an unauthenticated JSON API.",
+      "url": "https://sudo.eresearch.unimelb.edu.au/",
+      "x-operator": "institution"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "Melbourne Data",
+      "description": "Figshare tenancy registered with DataCite as UNIMELB.REPO1. The data is the University's; the platform and its API contract are Figshare's.",
+      "url": "https://melbourne.figshare.com/",
+      "x-operator": "tenant"
+    },
+    {
+      "@type": "DataCatalog",
+      "name": "University of Melbourne Open Spatial Data",
+      "description": "Esri ArcGIS Hub site publishing a DCAT-US 1.1 catalog feed and an OGC API Records search endpoint.",
+      "url": "https://spatialdata-uom.opendata.arcgis.com/",
+      "x-operator": "tenant"
+    }
+  ],
+  "x-provenance": {
+    "generated": "2026-08-19",
+    "method": "searched",
+    "source": "ROR API (https://api.ror.org/organizations?query=University%20of%20Melbourne, HTTP 200) for identifiers; live probes of each subOrganization surface on 2026-08-19 for operator attribution."
+  }
+}

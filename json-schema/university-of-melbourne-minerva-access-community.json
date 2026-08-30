@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/json-schema/university-of-melbourne-minerva-access-community.json",
+  "title": "Minerva Access Community",
+  "description": "A DSpace 7.6 community resource from Minerva Access, the University of Melbourne Library Digital Repository. Derived from a live response on 2026-08-19 (223 communities across 112 pages).",
+  "x-provenance": {
+    "generated": "2026-08-19",
+    "method": "derived",
+    "source": "GET https://minerva-access.unimelb.edu.au/server/api/core/communities?size=2 (HTTP 200 application/hal+json)",
+    "x-operator": "institution"
+  },
+  "type": "object",
+  "required": ["uuid", "name", "type"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "uuid": { "type": "string", "format": "uuid" },
+    "name": { "type": "string" },
+    "handle": {
+      "type": "string",
+      "description": "Handle System identifier under the University of Melbourne 11343 prefix",
+      "pattern": "^11343/[0-9]+$",
+      "examples": ["11343/274323"]
+    },
+    "archivedItemsCount": { "type": "integer", "minimum": 0 },
+    "type": { "const": "community" },
+    "metadata": {
+      "type": "object",
+      "description": "Dublin Core metadata, keyed by qualified DC field (dc.title, dc.description, dc.identifier.uri, ...)",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["value"],
+          "properties": {
+            "value": { "type": "string" },
+            "language": { "type": ["string", "null"] },
+            "authority": { "type": ["string", "null"] },
+            "confidence": { "type": "integer" },
+            "place": { "type": "integer" }
+          }
+        }
+      }
+    },
+    "_links": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": { "href": { "type": "string", "format": "uri" } }
+      }
+    }
+  }
+}

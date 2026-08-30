@@ -1,0 +1,92 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes on 2026-08-19 of each surface listed below; request/response
+  statuses recorded per entry.
+description: >-
+  Authentication posture per surface, split by operator. The University of
+  Melbourne runs two distinct identity systems and neither is an API product:
+  a self-hosted Shibboleth SAML 2.0 IdP for federated research and library
+  access (institution-operated), and an Okta tenancy on a University vanity
+  hostname for web SSO (tenant). Its two publicly callable read APIs require
+  no authentication at all.
+surfaces:
+  - name: Spatial Urban Data Observatory (SUDO) API v2
+    url: https://sudo.eresearch.unimelb.edu.au/api/v2
+    x-operator: institution
+    type: none
+    verified: '2026-08-19'
+    detail: >-
+      Anonymous GET returns 200. Response headers show
+      `Allow: GET, HEAD, OPTIONS`, `access-control-allow-origin: *`,
+      `Access-Control-Allow-Credentials: false`, and
+      `Access-Control-Allow-Headers: Content-Type, Accept, Authorization,
+      Origin, User-Agent` — so an Authorization header is accepted for
+      write/private scopes but is not required to read. A Django `sessionid`
+      cookie is set on every anonymous request. No API-key issuance, no
+      registration, no published rate limit.
+  - name: Minerva Access DSpace REST API
+    url: https://minerva-access.unimelb.edu.au/server/api
+    x-operator: institution
+    type: none
+    verified: '2026-08-19'
+    detail: >-
+      Anonymous GET returns 200 for public content. DSpace 7.6 advertises an
+      `authn` and an `oidc` link relation from its root document for
+      authenticated operations, but reading communities, collections and items
+      requires no credential.
+  - name: Minerva Access OAI-PMH
+    url: https://minerva-access.unimelb.edu.au/server/oai/request
+    x-operator: institution
+    type: none
+    verified: '2026-08-19'
+    detail: Open harvesting interface, no credential of any kind.
+  - name: Shibboleth Identity Provider
+    url: https://idp.unimelb.edu.au/idp/shibboleth
+    x-operator: institution
+    type: saml2
+    verified: '2026-08-19'
+    detail: >-
+      Self-hosted Shibboleth IdP. Metadata is public (200 application/xml) and
+      registered in the Australian Access Federation aggregate; the
+      authentication itself is federated SAML 2.0 for members of scope
+      `unimelb.edu.au`. SSO endpoints:
+      https://idp.unimelb.edu.au/idp/profile/SAML2/Redirect/SSO,
+      /SAML2/POST/SSO, /SAML2/POST-SimpleSign/SSO.
+      This is the institution's own identity engineering — not a purchased
+      contract — and it is the single most consequential machine-readable
+      surface it operates.
+  - name: University SSO (Okta)
+    url: https://sso.unimelb.edu.au
+    x-operator: tenant
+    type: oauth2/oidc
+    verified: '2026-08-19'
+    detail: >-
+      OpenID Connect discovery and RFC 8414 metadata both return 200.
+      Issuer https://sso.unimelb.edu.au. Endpoints /oauth2/v1/authorize,
+      /oauth2/v1/token, /oauth2/v1/userinfo, /oauth2/v1/clients. Okta operates
+      the platform — grant_types_supported carries
+      urn:okta:params:oauth:grant-type:otp / :oob and Auth0 MFA grant URNs —
+      under a University hostname. Client registration is not open to the
+      public; there is no developer sign-up.
+  - name: Spartan HPC dashboard
+    url: https://dashboard.hpc.unimelb.edu.au
+    x-operator: institution
+    type: saml2
+    verified: '2026-08-19'
+    detail: >-
+      Registered as a Shibboleth Service Provider in the AAF aggregate
+      (entityID https://dashboard.hpc.unimelb.edu.au/shibboleth). The
+      unauthenticated web root now redirects to a Confluence knowledge base on
+      rcs-knowledge-hub.atlassian.net, so the dashboard itself is gated behind
+      federated login and no API surface is publicly observable.
+  - name: Melbourne Data research repository
+    url: https://melbourne.figshare.com
+    x-operator: tenant
+    type: unknown
+    verified: '2026-08-19'
+    detail: >-
+      Returned HTTP 202 with an AWS WAF JavaScript challenge body rather than
+      content. Bot-challenged, therefore live; authentication posture not
+      determinable. The Figshare API is Figshare's contract and is deliberately
+      not saved in this repository.

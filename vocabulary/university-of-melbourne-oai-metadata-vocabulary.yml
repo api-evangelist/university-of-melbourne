@@ -1,0 +1,78 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  GET https://minerva-access.unimelb.edu.au/server/oai/request?verb=ListMetadataFormats
+  (HTTP 200 text/xml, 3,492 bytes, 2026-08-19). Captured verbatim at
+  examples/university-of-melbourne-oai-pmh-listmetadataformats-example.xml.
+x-operator: institution
+description: >-
+  The metadata vocabulary Minerva Access will serve to a harvester. Fourteen
+  formats, twelve of them standard DSpace crosswalks and TWO of them built by
+  the University of Melbourne for its own purposes. The two local formats are
+  the reason this artifact exists: they are evidence that the institution does
+  engineering on this surface rather than merely hosting a package, which is
+  precisely the distinction the university pipeline is built to draw.
+institution_specific:
+  - prefix: umbl
+    namespace: 'http://www.dspace.org/xmlns/dspace/umbl'
+    schema: 'http://www.openarchives.org/OAI/2.0/'
+    reading: >-
+      "umbl" = University of Melbourne Library. A local crosswalk in the
+      DSpace namespace that does not ship with stock DSpace 7.6.
+  - prefix: trove
+    namespace: 'http://trove.nla.gov.au/oai/uom'
+    schema: 'http://www.openarchives.org/OAI/2.0/'
+    reading: >-
+      A crosswalk written for harvesting into Trove, the National Library of
+      Australia's aggregated discovery service. The namespace carries a `uom`
+      path segment, i.e. it is Melbourne's own slot in the national harvest.
+      This is a real, if small, piece of national-infrastructure integration.
+standard_formats:
+  - prefix: oai_dc
+    namespace: 'http://www.openarchives.org/OAI/2.0/oai_dc/'
+    schema: 'http://www.openarchives.org/OAI/2.0/oai_dc.xsd'
+  - prefix: qdc
+    namespace: 'http://purl.org/dc/terms/'
+    schema: 'http://dublincore.org/schemas/xmls/qdc/2006/01/06/dcterms.xsd'
+  - prefix: dim
+    namespace: 'http://www.dspace.org/xmlns/dspace/dim'
+    schema: 'http://www.dspace.org/schema/dim.xsd'
+  - prefix: mods
+    namespace: 'http://www.loc.gov/mods/v3'
+    schema: 'http://www.loc.gov/standards/mods/v3/mods-3-1.xsd'
+  - prefix: mets
+    namespace: 'http://www.loc.gov/METS/'
+    schema: 'http://www.loc.gov/standards/mets/mets.xsd'
+  - prefix: marc
+    namespace: 'http://www.loc.gov/MARC21/slim'
+    schema: 'http://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd'
+  - prefix: didl
+    namespace: 'urn:mpeg:mpeg21:2002:02-DIDL-NS'
+    schema: 'http://standards.iso.org/ittf/PubliclyAvailableStandards/MPEG-21_schema_files/did/didl.xsd'
+  - prefix: ore
+    namespace: 'http://www.w3.org/2005/Atom'
+    schema: 'http://tweety.lanl.gov/public/schemas/2008-06/atom-tron.sch'
+  - prefix: rdf
+    namespace: 'http://www.openarchives.org/OAI/2.0/rdf/'
+    schema: 'http://www.openarchives.org/OAI/2.0/rdf.xsd'
+  - prefix: xoai
+    namespace: 'http://www.lyncode.com/xoai'
+    schema: 'http://www.lyncode.com/schemas/xoai.xsd'
+  - prefix: etdms
+    namespace: 'http://www.ndltd.org/standards/metadata/etdms/1.0/'
+    schema: 'http://www.ndltd.org/standards/metadata/etdms/1.0/etdms.xsd'
+  - prefix: uketd_dc
+    namespace: 'http://naca.central.cranfield.ac.uk/ethos-oai/2.0/'
+    schema: 'http://naca.central.cranfield.ac.uk/ethos-oai/2.0/uketd_dc.xsd'
+identifier_scheme:
+  scheme: oai
+  repositoryIdentifier: jupiter.its.unimelb.edu.au
+  delimiter: ':'
+  sampleIdentifier: 'oai:jupiter.its.unimelb.edu.au:11343/1234'
+  handle_prefix: '11343'
+  note: >-
+    Repository content is identified with Handle System handles under the
+    11343 prefix, not with DOIs. DOI minting for this institution happens
+    through DataCite client UNIMELB.REPO1, which points at the Figshare
+    tenancy at melbourne.figshare.com — a different surface, different
+    operator.

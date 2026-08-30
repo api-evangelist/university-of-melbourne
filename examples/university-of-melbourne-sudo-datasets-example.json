@@ -1,0 +1,371 @@
+{
+  "links": {
+    "next": "https://sudo.eresearch.unimelb.edu.au/api/v2/datasets?page=2&page_size=1",
+    "previous": null
+  },
+  "total": 7417,
+  "page": 1,
+  "page_size": 1,
+  "datasets": [
+    {
+      "bbox_polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.19678591700006,
+              -43.608803716999944
+            ],
+            [
+              113.19678591700006,
+              -10.540423343999976
+            ],
+            [
+              156.3573675980001,
+              -10.540423343999976
+            ],
+            [
+              156.3573675980001,
+              -43.608803716999944
+            ],
+            [
+              113.19678591700006,
+              -43.608803716999944
+            ]
+          ]
+        ]
+      },
+      "distributor": [],
+      "ptype": "gxp_wmscsource",
+      "links": [
+        {
+          "extension": "png",
+          "link_type": "image",
+          "name": "Thumbnail",
+          "mime": "image/png",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/uploaded/thumbs/dataset-7f401def-271b-44b0-b2dd-81196ddd80a9-thumb-a626ec6b-bef4-41b8-8ef0-f572db627ab3.jpg"
+        },
+        {
+          "extension": "gml",
+          "link_type": "data",
+          "name": "GML 3.1.1",
+          "mime": "text/xml; subtype=gml/3.1.1",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Ahistoric_fires&outputFormat=text%2Fxml%3B+subtype%3Dgml%2F3.1.1&srs=EPSG%3A4283"
+        },
+        {
+          "extension": "csv",
+          "link_type": "data",
+          "name": "CSV",
+          "mime": "csv",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Ahistoric_fires&outputFormat=csv&srs=EPSG%3A4283"
+        },
+        {
+          "extension": "excel",
+          "link_type": "data",
+          "name": "Excel",
+          "mime": "excel",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Ahistoric_fires&outputFormat=excel&srs=EPSG%3A4283"
+        },
+        {
+          "extension": "json",
+          "link_type": "data",
+          "name": "GeoJSON",
+          "mime": "json",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Ahistoric_fires&outputFormat=json&srs=EPSG%3A4283&srsName=EPSG%3A4283"
+        },
+        {
+          "extension": "html",
+          "link_type": "OGC:WMS",
+          "name": "OGC WMS: geonode Service",
+          "mime": "text/html",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows"
+        },
+        {
+          "extension": "jpg",
+          "link_type": "image",
+          "name": "JPEG",
+          "mime": "image/jpeg",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WMS&request=GetMap&layers=geonode%3Ahistoric_fires&format=image%2Fjpeg&height=550&width=550&srs=EPSG%3A4283&bbox=113.1967859%2C-43.6088037%2C156.3573676%2C-10.5404233"
+        },
+        {
+          "extension": "html",
+          "link_type": "OGC:WFS",
+          "name": "OGC WFS: geonode Service",
+          "mime": "text/html",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows"
+        },
+        {
+          "extension": "pdf",
+          "link_type": "image",
+          "name": "PDF",
+          "mime": "application/pdf",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WMS&request=GetMap&layers=geonode%3Ahistoric_fires&format=application%2Fpdf&height=550&width=550&srs=EPSG%3A4283&bbox=113.1967859%2C-43.6088037%2C156.3573676%2C-10.5404233"
+        },
+        {
+          "extension": "png",
+          "link_type": "image",
+          "name": "PNG",
+          "mime": "image/png",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WMS&request=GetMap&layers=geonode%3Ahistoric_fires&format=image%2Fpng&height=550&width=550&srs=EPSG%3A4283&bbox=113.1967859%2C-43.6088037%2C156.3573676%2C-10.5404233"
+        },
+        {
+          "extension": "gml",
+          "link_type": "data",
+          "name": "GML 2.0",
+          "mime": "gml2",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Ahistoric_fires&outputFormat=gml2&srs=EPSG%3A4283"
+        },
+        {
+          "extension": "zip",
+          "link_type": "data",
+          "name": "Zipped Shapefile",
+          "mime": "SHAPE-ZIP",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WFS&version=1.0.0&request=GetFeature&typename=geonode%3Ahistoric_fires&outputFormat=SHAPE-ZIP&srs=EPSG%3A4283&format_options=charset%3AUTF-8"
+        },
+        {
+          "extension": "png",
+          "link_type": "image",
+          "name": "Legend",
+          "mime": "image/png",
+          "url": "https://staging.unimelb-sudo.cloud.edu.au/geoserver/ows?service=WMS&request=GetLegendGraphic&format=image/png&WIDTH=20&HEIGHT=20&LAYER=geonode:historic_fires&STYLE=historic_fires&version=1.3.0&sld_version=1.1.0&legend_options=fontAntiAliasing:true;fontSize:12;forceLabels:on"
+        },
+        {
+          "extension": "html",
+          "link_type": "html",
+          "name": "geonode:historic_fires",
+          "mime": "text/html",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/#/dataset/10140"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "Atom",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/csw?request=GetRecordById&service=CSW&version=2.0.2&id=7f401def-271b-44b0-b2dd-81196ddd80a9&outputschema=http%3A%2F%2Fwww.w3.org%2F2005%2FAtom&elementsetname=full"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "DIF",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/csw?request=GetRecordById&service=CSW&version=2.0.2&id=7f401def-271b-44b0-b2dd-81196ddd80a9&outputschema=http%3A%2F%2Fgcmd.gsfc.nasa.gov%2FAboutus%2Fxml%2Fdif%2F&elementsetname=full"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "Dublin Core",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/csw?request=GetRecordById&service=CSW&version=2.0.2&id=7f401def-271b-44b0-b2dd-81196ddd80a9&outputschema=http%3A%2F%2Fwww.opengis.net%2Fcat%2Fcsw%2F2.0.2&elementsetname=full"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "ebRIM",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/csw?request=GetRecordById&service=CSW&version=2.0.2&id=7f401def-271b-44b0-b2dd-81196ddd80a9&outputschema=urn%3Aoasis%3Anames%3Atc%3Aebxml-regrep%3Axsd%3Arim%3A3.0&elementsetname=full"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "FGDC",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/csw?request=GetRecordById&service=CSW&version=2.0.2&id=7f401def-271b-44b0-b2dd-81196ddd80a9&outputschema=http%3A%2F%2Fwww.opengis.net%2Fcat%2Fcsw%2Fcsdgm&elementsetname=full"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "ISO",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/catalogue/csw?request=GetRecordById&service=CSW&version=2.0.2&id=7f401def-271b-44b0-b2dd-81196ddd80a9&outputschema=http%3A%2F%2Fwww.isotc211.org%2F2005%2Fgmd&elementsetname=full"
+        },
+        {
+          "extension": "xml",
+          "link_type": "metadata",
+          "name": "ISO with XSL",
+          "mime": "text/xml",
+          "url": "https://geonode.stg.unimelb-sudo.cloud.edu.au/showmetadata/xsl/10140"
+        }
+      ],
+      "originator": [],
+      "metadata_uploaded_preserve": false,
+      "is_published": true,
+      "spatial_representation_type": null,
+      "constraints_other": null,
+      "date_type": "publication",
+      "state": "PROCESSED",
+      "alternate": "geonode:historic_fires",
+      "thumbnail_url": "https://staging.unimelb-sudo.cloud.edu.au/uploaded/thumbs/dataset-7f401def-271b-44b0-b2dd-81196ddd80a9-thumb-a626ec6b-bef4-41b8-8ef0-f572db627ab3.jpg",
+      "raw_constraints_other": "None",
+      "default_style": {
+        "pk": 12687,
+        "name": "historic_fires",
+        "workspace": "geonode",
+        "sld_title": "Generic",
+        "sld_url": "https://staging.unimelb-sudo.cloud.edu.au/geoserverrest/workspaces/geonode/styles/historic_fires.sld"
+      },
+      "restriction_code_type": null,
+      "data_quality_statement": null,
+      "maintenance_frequency": null,
+      "metadata_only": false,
+      "workspace": "geonode",
+      "perms": [
+        "download_resourcebase",
+        "view_resourcebase"
+      ],
+      "publisher": [],
+      "is_copyable": false,
+      "uuid": "7f401def-271b-44b0-b2dd-81196ddd80a9",
+      "featured": false,
+      "regions": [],
+      "processed": true,
+      "embed_url": "https://staging.unimelb-sudo.cloud.edu.au/datasets/geonode:historic_fires/embed",
+      "keywords": [
+        {
+          "name": "Australian Children\u2019s Education and Care Quality Authority (GA)",
+          "slug": "australian-children\u2019s-education-and-care-quality-authority-(ga)"
+        }
+      ],
+      "charset": "UTF-8",
+      "raw_data_quality_statement": "None",
+      "advertised": true,
+      "license": {
+        "identifier": "not_specified"
+      },
+      "name": "historic_fires",
+      "share_count": "0",
+      "is_approved": true,
+      "created": "2024-10-24T03:01:51.433071Z",
+      "subtype": "vector",
+      "category": null,
+      "rating": "0",
+      "date": "2024-10-24T03:01:50.439637Z",
+      "srid": "EPSG:4283",
+      "ll_bbox_polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              113.19678591700006,
+              -43.60880375777909
+            ],
+            [
+              113.19678591700006,
+              -10.540423345600557
+            ],
+            [
+              156.3573675980001,
+              -10.540423345600557
+            ],
+            [
+              156.3573675980001,
+              -43.60880375777909
+            ],
+            [
+              113.19678591700006,
+              -43.60880375777909
+            ]
+          ]
+        ]
+      },
+      "title": "NA-Historic Fires",
+      "featureinfo_custom_template": "<div style=\"overflow-x:hidden\"><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">gid:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['gid']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">objectid:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['objectid']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">fire_id:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['fire_id']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">fire_name:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['fire_name']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">fire_type:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['fire_type']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">ignition_c:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['ignition_c']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">capt_metho:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['capt_metho']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">area_ha:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['area_ha']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">perim_km:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['perim_km']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">State:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['state']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">agency:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['agency']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">shape_leng:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['shape_leng']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">shape_area:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['shape_area']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">ignition_date:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['ignition_date']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">capture_date:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['capture_date']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">extinguish_date:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['extinguish_date']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">year:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['year']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">thinness_ratio:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['thinness_ratio']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">area_comp:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['area_comp']}</div></div><div class=\"row\"><div class=\"col-xs-6\" style=\"font-weight: bold; word-wrap: break-word;\">perimeter_comp:</div>                             <div class=\"col-xs-6\" style=\"word-wrap: break-word;\">${properties['perimeter_comp']}</div></div></div>",
+      "detail_url": "https://staging.unimelb-sudo.cloud.edu.au/catalogue/#/dataset/10140",
+      "tkeywords": [],
+      "has_time": false,
+      "polymorphic_ctype_id": "64",
+      "owner": {
+        "pk": 1000,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "avatar": "https://staging.unimelb-sudo.cloud.edu.au/static/geonode/img/avatar.png",
+        "is_superuser": true,
+        "is_staff": true,
+        "email": "",
+        "link": "https://staging.unimelb-sudo.cloud.edu.au/api/v2/users/1000"
+      },
+      "resource_user": [],
+      "group": null,
+      "processor": [],
+      "resource_provider": [],
+      "temporal_extent_end": "2022-09-21T00:00:00Z",
+      "language": "eng",
+      "poc": [
+        {
+          "pk": 1000,
+          "username": "admin",
+          "first_name": "",
+          "last_name": "",
+          "avatar": "https://staging.unimelb-sudo.cloud.edu.au/static/geonode/img/avatar.png",
+          "is_superuser": true,
+          "is_staff": true,
+          "email": "",
+          "link": "https://staging.unimelb-sudo.cloud.edu.au/api/v2/users/1000"
+        }
+      ],
+      "custodian": [],
+      "doi": null,
+      "time_regex": null,
+      "attribution": null,
+      "download_url": "https://staging.unimelb-sudo.cloud.edu.au/datasets/geonode:historic_fires/dataset_download",
+      "styles": [
+        {
+          "pk": 12687,
+          "name": "historic_fires",
+          "workspace": "geonode",
+          "sld_title": "Generic",
+          "sld_url": "https://staging.unimelb-sudo.cloud.edu.au/geoserverrest/workspaces/geonode/styles/historic_fires.sld"
+        }
+      ],
+      "popular_count": "516",
+      "resource_type": "dataset",
+      "extent": {
+        "coords": [
+          113.19678591700006,
+          -43.60880375777909,
+          156.3573675980001,
+          -10.540423345600557
+        ],
+        "srid": "EPSG:4326"
+      },
+      "download_urls": [
+        {
+          "url": "/datasets/geonode:historic_fires/dataset_download",
+          "ajax_safe": true,
+          "default": true
+        }
+      ],
+      "has_elevation": false,
+      "raw_abstract": "The Historical Fires Boundaries dataset was produced under Stream 1 - Work Package 4 of the 2021-23 Australian Research Data Commons (ARDC) Bushfire Data Challenge Project; a collaborative partnership between the ARDC, Geoscience Australia, and the Emergency Management Spatial Information Network.Keywords:Approval, Field, Trading, Geometry, Conditions, Unique, Longitude, Address, Date, Latitude, Suburb, Appoval, Legal, Street, Geocode, Name, Granted, State, Identifier, Provider, Number, Service, Postcode, fire, bushfire, LevelYears:1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022WFS URL:https://geonode.stg.unimelb-sudo.cloud.edu.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=geonode%3Ahistoric_fires&outputFormat=application%2Fjson",
+      "purpose": null,
+      "temporal_extent_start": "1899-12-30T00:00:00Z",
+      "is_mosaic": false,
+      "last_updated": "2024-10-24T03:13:31.688891Z",
+      "edition": null,
+      "sourcetype": "LOCAL",
+      "favorite": false,
+      "abstract": "The Historical Fires Boundaries dataset was produced under Stream 1 - Work Package 4 of the 2021-23 Australian Research Data Commons (ARDC) Bushfire Data Challenge Project; a collaborative partnership between the ARDC, Geoscience Australia, and the Emergency Management Spatial Information Network.<br><br>Keywords:<br>Approval, Field, Trading, Geometry, Conditions, Unique, Longitude, Address, Date, Latitude, Suburb, Appoval, Legal, Street, Geocode, Name, Granted, State, Identifier, Provider, Number, Service, Postcode, fire, bushfire, Level<br><br>Years:<br>1899, 1900, 1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1936, 1937, 1938, 1939, 1940, 1941, 1942, 1943, 1944, 1945, 1946, 1947, 1948, 1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971, 1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022<br><br>WFS URL:<br>https://geonode.stg.unimelb-sudo.cloud.edu.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=geonode%3Ahistoric_fires&outputFormat=application%2Fjson",
+      "raw_supplemental_information": "No information provided",
+      "metadata_author": [
+        {
+          "pk": 1000,
+          "username": "admin",
+          "first_name": "",
+          "last_name": "",
+          "avatar": "https://staging.unimelb-sudo.cloud.edu.au/static/geonode/img/avatar.png",
+          "is_superuser": true,
+          "is_staff": true,
+          "email": "",
+          "link": "https://staging.unimelb-sudo.cloud.edu.au/api/v2/users/1000"
+        }
+      ],
+      "link": "https://staging.unimelb-sudo.cloud.edu.au/api/v2/datasets/10140",
+      "pk": "10140",
+      "supplemental_information": "No information provided",
+      "store": "ga",
+      "principal_investigator": [],
+      "elevation_regex": null,
+      "raw_purpose": "None"
+    }
+  ]
+}

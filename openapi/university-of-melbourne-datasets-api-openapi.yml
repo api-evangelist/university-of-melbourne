@@ -1,0 +1,407 @@
+openapi: 3.2.0
+info:
+  title: University of Melbourne — Spatial Urban Data Observatory (SUDO) Datasets API
+  version: v2
+  description: "Read surface of the Spatial Urban Data Observatory (SUDO), an institution-operated GeoNode deployment run by the University of Melbourne on its own `eresearch.unimelb.edu.au` host. SUDO is the one genuinely institution-operated, publicly callable API found in this profile: an unauthenticated JSON collection API over 7,417 spatial datasets, with OGC-style bounding-box geometry, DOIs, licences and download links on every record.\nThis document was DERIVED from live probes on 2026-08-19, not from a contract the University publishes. Only endpoints that returned HTTP 200 on that date are described. The University of Melbourne does not publish an OpenAPI description of SUDO; GeoNode's own `/api/v2/openapi` and `/api/v2/swagger.json` both return 404 on this deployment.\nKNOWN DEFECTS, recorded rather than smoothed over:\n  * TLS certificate mismatch — https://sudo.eresearch.unimelb.edu.au\n    presents a certificate whose subject and only SAN is\n    `staging.unimelb-sudo.cloud.edu.au`. Standard clients reject the\n    connection; every probe below required certificate verification to be\n    disabled. The page title served is also `staging.unimelb-sudo.cloud.edu.au`,\n    so the production hostname appears to be fronting a staging instance.\n  * Intermittent timeouts — `/api/v2/categories` timed out at 60s on\n    2026-08-19 while `/api/v2/datasets` and `/api/v2/` answered normally."
+  contact:
+    name: University of Melbourne eResearch
+    url: https://sudo.eresearch.unimelb.edu.au/about/
+  x-operator: institution
+  x-software: GeoNode (OSGeo, GPL-3.0)
+  x-provenance:
+    generated: '2026-08-19'
+    method: derived
+    source: Live probes of https://sudo.eresearch.unimelb.edu.au/api/v2/ , /api/v2/datasets?page_size=1 and /api/v2/datasets/999999999 on 2026-08-19. Schema fields enumerated from the actual dataset record returned.
+servers:
+- url: https://sudo.eresearch.unimelb.edu.au/api/v2
+  description: Production hostname (see TLS defect in info.description)
+tags:
+- name: Datasets
+  description: Spatial datasets held in the observatory
+paths:
+  /datasets:
+    get:
+      tags:
+      - Datasets
+      summary: List spatial datasets
+      description: 'Page through the observatory''s spatial datasets. Verified 200 with `total: 7417` on 2026-08-19. No authentication required and no rate-limit headers are returned.'
+      operationId: listDatasets
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 1
+      - name: page_size
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 10
+      responses:
+        '200':
+          description: A page of datasets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetPage'
+  /datasets/{id}:
+    get:
+      tags:
+      - Datasets
+      summary: Retrieve one dataset
+      description: Retrieve a single dataset by primary key. The 404 shape below was verified against `/api/v2/datasets/999999999` on 2026-08-19.
+      operationId: getDataset
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: One dataset
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataset:
+                    $ref: '#/components/schemas/Dataset'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                detail: Not found.
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
+    Dataset:
+      type: object
+      description: Field set enumerated from a live record on 2026-08-19. Only fields actually present on that record are described; types are inferred from the observed values and are marked as such.
+      properties:
+        pk:
+          type: integer
+        uuid:
+          type: string
+        title:
+          type: string
+        abstract:
+          type: string
+        raw_abstract:
+          type: string
+        purpose:
+          type:
+          - string
+          - 'null'
+        name:
+          type: string
+        resource_type:
+          type: string
+          example: dataset
+        subtype:
+          type:
+          - string
+          - 'null'
+        doi:
+          type:
+          - string
+          - 'null'
+        date:
+          type: string
+          format: date-time
+        date_type:
+          type: string
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        language:
+          type: string
+        category:
+          type:
+          - object
+          - 'null'
+        keywords:
+          type: array
+          items:
+            type: object
+        tkeywords:
+          type: array
+          items:
+            type: object
+        regions:
+          type: array
+          items:
+            type: object
+        license:
+          type:
+          - object
+          - 'null'
+        constraints_other:
+          type:
+          - string
+          - 'null'
+        data_quality_statement:
+          type:
+          - string
+          - 'null'
+        supplemental_information:
+          type:
+          - string
+          - 'null'
+        attribution:
+          type:
+          - string
+          - 'null'
+        owner:
+          type: object
+        poc:
+          type: array
+          items:
+            type: object
+        metadata_author:
+          type: array
+          items:
+            type: object
+        publisher:
+          type: array
+          items:
+            type: object
+        custodian:
+          type: array
+          items:
+            type: object
+        distributor:
+          type: array
+          items:
+            type: object
+        originator:
+          type: array
+          items:
+            type: object
+        principal_investigator:
+          type: array
+          items:
+            type: object
+        processor:
+          type: array
+          items:
+            type: object
+        resource_provider:
+          type: array
+          items:
+            type: object
+        resource_user:
+          type: array
+          items:
+            type: object
+        bbox_polygon:
+          type: object
+          description: GeoJSON Polygon
+        ll_bbox_polygon:
+          type: object
+          description: GeoJSON Polygon
+          lat/long: null
+        extent:
+          type: object
+        srid:
+          type: string
+          example: EPSG:4326
+        spatial_representation_type:
+          type:
+          - object
+          - 'null'
+        has_time:
+          type: boolean
+        has_elevation:
+          type: boolean
+        temporal_extent_start:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        temporal_extent_end:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        time_regex:
+          type:
+          - string
+          - 'null'
+        elevation_regex:
+          type:
+          - string
+          - 'null'
+        is_mosaic:
+          type: boolean
+        is_approved:
+          type: boolean
+        is_published:
+          type: boolean
+        is_copyable:
+          type: boolean
+        advertised:
+          type: boolean
+        featured:
+          type: boolean
+        favorite:
+          type: boolean
+        metadata_only:
+          type: boolean
+        metadata_uploaded_preserve:
+          type: boolean
+        processed:
+          type: boolean
+        state:
+          type: string
+        store:
+          type:
+          - string
+          - 'null'
+        workspace:
+          type:
+          - string
+          - 'null'
+        charset:
+          type: string
+        edition:
+          type:
+          - string
+          - 'null'
+        group:
+          type:
+          - object
+          - 'null'
+        maintenance_frequency:
+          type:
+          - string
+          - 'null'
+        restriction_code_type:
+          type:
+          - object
+          - 'null'
+        sourcetype:
+          type: string
+        ptype:
+          type:
+          - string
+          - 'null'
+        polymorphic_ctype_id:
+          type: integer
+        default_style:
+          type:
+          - object
+          - 'null'
+        styles:
+          type: array
+          items:
+            type: object
+        featureinfo_custom_template:
+          type:
+          - string
+          - 'null'
+        alternate:
+          type:
+          - string
+          - 'null'
+        perms:
+          type: array
+          items:
+            type: string
+        rating:
+          type: integer
+        popular_count:
+          type: integer
+        share_count:
+          type: integer
+        detail_url:
+          type: string
+        embed_url:
+          type: string
+        thumbnail_url:
+          type: string
+        download_url:
+          type:
+          - string
+          - 'null'
+        download_urls:
+          type: array
+          items:
+            type: object
+        link:
+          type:
+          - string
+          - 'null'
+        links:
+          type: array
+          items:
+            type: object
+        assets:
+          type: array
+          items:
+            type: object
+        raw_constraints_other:
+          type:
+          - string
+          - 'null'
+        raw_data_quality_statement:
+          type:
+          - string
+          - 'null'
+        raw_purpose:
+          type:
+          - string
+          - 'null'
+        raw_supplemental_information:
+          type:
+          - string
+          - 'null'
+    DatasetPage:
+      type: object
+      required:
+      - links
+      - total
+      - page
+      - page_size
+      - datasets
+      properties:
+        links:
+          type: object
+          properties:
+            next:
+              type:
+              - string
+              - 'null'
+              format: uri
+            previous:
+              type:
+              - string
+              - 'null'
+              format: uri
+        total:
+          type: integer
+          example: 7417
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'

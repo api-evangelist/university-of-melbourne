@@ -1,0 +1,192 @@
+openapi: 3.2.0
+info:
+  title: University of Melbourne — Minerva Access Repository REST Core API
+  version: DSpace 7.6
+  description: 'Read surface of Minerva Access, the University of Melbourne Library''s institutional repository. The deployment is DSpace 7.6, self-hosted on the University''s own infrastructure — the service advertises itself as `https://rest.mars-prod.its.unimelb.edu.au/server` (its.unimelb.edu.au = University of Melbourne Information Technology Services) and the OAI-PMH Identify response names `jupiter.its.unimelb.edu.au` as the repository identifier with `repository-admin@unimelb.edu.au` as admin contact.
+
+    OPERATOR NOTE. DSpace is open-source software (LYRASIS), not a hosted vendor platform, and this instance runs on University hardware under a University hostname, so the operator is the institution. That is a different finding from `melbourne.figshare.com`, which is a Figshare tenancy and is recorded in apis.yml as `x-operator: tenant` with no contract saved here.
+
+    This document was DERIVED from live probes on 2026-08-19. The University does not publish an OpenAPI description of this API. Only endpoints that returned HTTP 200 on that date are described here; DSpace 7.6 exposes roughly 60 further HAL link relations from its root document, which are listed in `lifecycle/` rather than invented into paths.'
+  contact:
+    name: Minerva Access repository administration
+    email: repository-admin@unimelb.edu.au
+    url: https://minerva-access.unimelb.edu.au/
+  x-operator: institution
+  x-software: DSpace 7.6 (LYRASIS, BSD)
+  x-provenance:
+    generated: '2026-08-19'
+    method: derived
+    source: Live probes of https://minerva-access.unimelb.edu.au/server/api , /server/api/core/communities?size=2 and /server/api/core/communities/00000000-0000-0000-0000-000000000000 on 2026-08-19.
+servers:
+- url: https://minerva-access.unimelb.edu.au/server/api
+  description: Public hostname
+- url: https://rest.mars-prod.its.unimelb.edu.au/server/api
+  description: Origin hostname the service advertises for itself in its own root document (dspaceServer). Also verified 200 on 2026-08-19.
+tags:
+- name: Core
+  description: Repository content hierarchy
+paths:
+  /core/communities:
+    get:
+      tags:
+      - Core
+      summary: List communities
+      description: 'Page through the repository''s top-level communities. Verified 200 with `page.totalElements: 223` on 2026-08-19. No authentication required for public content.'
+      operationId: listCommunities
+      parameters:
+      - name: page
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+      - name: size
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          default: 20
+      responses:
+        '200':
+          description: A page of communities
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/CommunityPage'
+  /core/communities/{uuid}:
+    get:
+      tags:
+      - Core
+      summary: Retrieve one community
+      description: Retrieve a community by UUID. The 404 shape below was verified against an all-zero UUID on 2026-08-19; it is a Spring Boot error envelope, not RFC 9457 Problem Details.
+      operationId: getCommunity
+      parameters:
+      - name: uuid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: One community
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Community'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                timestamp: '2026-08-19T21:33:06.523+00:00'
+                status: 404
+                error: Not Found
+                message: An exception has occurred
+                path: /server/api/core/communities/00000000-0000-0000-0000-000000000000
+components:
+  schemas:
+    Community:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        uuid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        handle:
+          type: string
+          description: Handle System identifier under the 11343 prefix
+          example: 11343/274323
+        archivedItemsCount:
+          type: integer
+        type:
+          type: string
+          example: community
+        metadata:
+          type: object
+          description: Dublin Core metadata map, keyed by qualified DC field
+          additionalProperties:
+            type: array
+            items:
+              type: object
+              properties:
+                value:
+                  type: string
+                language:
+                  type:
+                  - string
+                  - 'null'
+                authority:
+                  type:
+                  - string
+                  - 'null'
+                confidence:
+                  type: integer
+                place:
+                  type: integer
+        _links:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              href:
+                type: string
+                format: uri
+    Error:
+      type: object
+      description: Spring Boot error envelope (not RFC 9457 Problem Details)
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+        path:
+          type: string
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+          example: 2
+        totalElements:
+          type: integer
+          example: 223
+        totalPages:
+          type: integer
+          example: 112
+        number:
+          type: integer
+          example: 0
+    CommunityPage:
+      type: object
+      properties:
+        _embedded:
+          type: object
+          properties:
+            communities:
+              type: array
+              items:
+                $ref: '#/components/schemas/Community'
+        page:
+          $ref: '#/components/schemas/Page'
+        _links:
+          type: object
+          additionalProperties:
+            type: object
+            properties:
+              href:
+                type: string
+                format: uri

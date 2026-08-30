@@ -1,0 +1,152 @@
+{
+  "_embedded": {
+    "communities": [
+      {
+        "id": "5d01ea1d-4c2b-5299-9927-f268a59d6021",
+        "uuid": "5d01ea1d-4c2b-5299-9927-f268a59d6021",
+        "name": "3CR Beyond the Bars",
+        "handle": "11343/274323",
+        "metadata": {
+          "dc.description": [
+            {
+              "value": "<br /><strong>Beyond the Bars</strong> is a project founded by <strong>3CR Community Radio</strong> in Melbourne in 2001-2002. Its purpose is to give voice to Aboriginal and Torres Strait Islander community members within the Victorian prison system and to include them in the annual National Aborigines and Islanders Day Observance Committee (NAIDOC) celebrations. The project is a series of live radio broadcasts featuring the voices, songs, poetry, opinions and conversations with Aboriginal and Torres Strait Islander people in Victorian prisons.<br />\n<br />\nSinger-songwriter, broadcaster and Mutti Mutti man Kutcha Edwards, and Aboriginal broadcaster and community advocate the late Gilla McGuinness helped found the program and drive its annual presentation. A large number of First Nations broadcasters have contributed as broadcast presenters during the annual radio project. <br />\n<br />\nThis collection consists of promotional posters, CDs, and CD covers from 2002-2020 of the Beyond the Bars program. The posters were displayed in and around greater Melbourne and online, to promote the annual project. The CDs include highlights from the Beyond the Bars live programming and are produced after each annual broadcast. This collection contains CDs from 2004 (the first year of CD production) through to 2020. <br />\n<br />\nThis collection was digitised by the University of Melbourne Digitisation Centre as part of a collaborative project with 3CR, Liz Dean from the School of Social and Political Sciences and the Melbourne Social Equity Institute.\nThe project continues to be designed and delivered by 3CR Community Radio each year.<br />\n<br />\nFor more information about the <strong>Beyond the Bars</strong> program, please visit: <a href=\"https://www.3cr.org.au/beyondthebars\"><em>https://www.3cr.org.au/beyondthebars</em></a>",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.identifier.uri": [
+            {
+              "value": "https://hdl.handle.net/11343/274323",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.rights": [
+            {
+              "value": "<strong>Copyright:</strong> Copyright held by 3CR. <br />\n<br />\n<strong>Usage Statement/terms of use:</strong><br />\n<br />\n\n 3CR is acknowledged as the copyright owner of this the 3CR Beyond the Bars digitised collection. 3CR have agreed to make the materials available via licence under the Creative Commons licence Attribution-NonCommercial-ShareAlike 3.0 Australia.<br />\n<br />\nPlease find more information and the full licence information at this link: <a href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/au/\"><em>https://creativecommons.org/licenses/by-nc-sa/3.0/au/</em></a><br />\nIf you would like to use these materials in a way not covered by the above licence, please contact 3CR directly:<br />\n<br />\n\n<strong>Phone:</strong> 03 9419 8377<br />\n<strong>Website: </strong><a href=\"https://www.3cr.org.au\"><em>https://www.3cr.org.au</em></a><br />\n<br />\n\n<strong>Melbourne Social Equity Institute </strong>made possible the digitisation of the Beyond the Bars CDs and Posters. The materials were digitised by the <a href=\"https://library.unimelb.edu.au/digitisation\"><em>University of Melbourne Digitisation Centre</em></a><br />",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.title": [
+            {
+              "value": "3CR Beyond the Bars",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ]
+        },
+        "archivedItemsCount": 37,
+        "type": "community",
+        "_links": {
+          "collections": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/5d01ea1d-4c2b-5299-9927-f268a59d6021/collections"
+          },
+          "logo": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/5d01ea1d-4c2b-5299-9927-f268a59d6021/logo"
+          },
+          "subcommunities": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/5d01ea1d-4c2b-5299-9927-f268a59d6021/subcommunities"
+          },
+          "parentCommunity": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/5d01ea1d-4c2b-5299-9927-f268a59d6021/parentCommunity"
+          },
+          "adminGroup": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/5d01ea1d-4c2b-5299-9927-f268a59d6021/adminGroup"
+          },
+          "self": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/5d01ea1d-4c2b-5299-9927-f268a59d6021"
+          }
+        }
+      },
+      {
+        "id": "dceafa70-17cb-5fc7-bc69-4f9e7e881ede",
+        "uuid": "dceafa70-17cb-5fc7-bc69-4f9e7e881ede",
+        "name": "Accounting",
+        "handle": "11343/419",
+        "metadata": {
+          "dc.description.abstract": [
+            {
+              "value": "",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.identifier.uri": [
+            {
+              "value": "https://hdl.handle.net/11343/419",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ],
+          "dc.title": [
+            {
+              "value": "Accounting",
+              "language": null,
+              "authority": null,
+              "confidence": -1,
+              "place": 0
+            }
+          ]
+        },
+        "archivedItemsCount": 211,
+        "type": "community",
+        "_links": {
+          "collections": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/dceafa70-17cb-5fc7-bc69-4f9e7e881ede/collections"
+          },
+          "logo": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/dceafa70-17cb-5fc7-bc69-4f9e7e881ede/logo"
+          },
+          "subcommunities": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/dceafa70-17cb-5fc7-bc69-4f9e7e881ede/subcommunities"
+          },
+          "parentCommunity": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/dceafa70-17cb-5fc7-bc69-4f9e7e881ede/parentCommunity"
+          },
+          "adminGroup": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/dceafa70-17cb-5fc7-bc69-4f9e7e881ede/adminGroup"
+          },
+          "self": {
+            "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/dceafa70-17cb-5fc7-bc69-4f9e7e881ede"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "first": {
+      "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities?page=0&size=2"
+    },
+    "self": {
+      "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities?size=2"
+    },
+    "next": {
+      "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities?page=1&size=2"
+    },
+    "last": {
+      "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities?page=111&size=2"
+    },
+    "search": {
+      "href": "https://minerva-access.unimelb.edu.au/server/api/core/communities/search"
+    }
+  },
+  "page": {
+    "size": 2,
+    "totalElements": 223,
+    "totalPages": 112,
+    "number": 0
+  }
+}

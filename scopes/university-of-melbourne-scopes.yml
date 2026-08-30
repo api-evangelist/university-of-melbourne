@@ -1,0 +1,48 @@
+generated: '2026-08-19'
+method: probed
+source: https://sso.unimelb.edu.au/.well-known/openid-configuration (HTTP 200, 2026-08-19)
+x-operator: tenant
+description: >-
+  The only enumerable scope set on any University of Melbourne surface. It
+  comes from the OpenID Connect discovery document served by the University's
+  Okta tenancy at sso.unimelb.edu.au. The operator is `tenant`: Okta defines
+  and implements these scopes, the University configures and hosts them under
+  its own name. Nothing derived from this document is credited to the
+  institution's engineering.
+
+  The University's two publicly callable APIs — SUDO and Minerva Access — are
+  unauthenticated for read and publish no scope model at all.
+scopes:
+  - name: openid
+    description: Required OIDC scope; requests an ID token.
+  - name: profile
+    description: Basic profile claims.
+  - name: email
+    description: Email address claims.
+  - name: address
+    description: Postal address claim.
+  - name: phone
+    description: Phone number claims.
+  - name: offline_access
+    description: Requests a refresh token.
+  - name: groups
+    description: >-
+      Okta group membership claim. In a university deployment this is the claim
+      that typically carries staff/student/faculty affiliation to downstream
+      applications.
+grant_types_supported:
+  - authorization_code
+  - implicit
+  - refresh_token
+  - password
+  - 'urn:ietf:params:oauth:grant-type:device_code'
+  - 'urn:openid:params:grant-type:ciba'
+  - 'urn:okta:params:oauth:grant-type:otp'
+  - 'urn:okta:params:oauth:grant-type:oob'
+  - 'http://auth0.com/oauth/grant-type/mfa-otp'
+  - 'http://auth0.com/oauth/grant-type/mfa-oob'
+notes: >-
+  The presence of the `password` (Resource Owner Password Credentials) grant in
+  a 2026 discovery document is worth recording; OAuth 2.1 removes it. It is
+  offered by the platform here, which is not the same as the University
+  enabling it for any given application.

@@ -1,0 +1,95 @@
+x-generated: '2026-08-19'
+x-method: derived
+x-source: >-
+  Derived from the observed behaviour of the University of Melbourne's
+  institution-operated surfaces on 2026-08-19 (see errors/, conformance/ and
+  lifecycle/). These are governance findings about surfaces the University
+  actually runs; none of them is derived from a vendor contract.
+x-operator: institution
+description: >-
+  Governance rules the University of Melbourne's own APIs are measured against,
+  with the observed result for each. Written as findings, not as
+  recommendations to a customer — nobody at the University asked for this and
+  none of these surfaces claims to be a product.
+rules:
+  - id: machine-readable-contract-published
+    severity: error
+    applies_to: [sudo, minerva-access-rest, minerva-access-oai]
+    result: fail
+    finding: >-
+      No OpenAPI, AsyncAPI or JSON Schema is published for any surface. GeoNode
+      ships an OpenAPI route; on this deployment /api/v2/openapi and
+      /api/v2/swagger.json both 404. The three OpenAPI documents in openapi/
+      are ours, marked method: derived, and must never be read as the
+      University's.
+  - id: tls-hostname-matches-certificate
+    severity: error
+    applies_to: [sudo]
+    result: fail
+    finding: >-
+      sudo.eresearch.unimelb.edu.au presents a certificate for
+      staging.unimelb-sudo.cloud.edu.au and nothing else. A conformant client
+      cannot reach a public research dataset API of 7,417 datasets without
+      disabling certificate verification.
+  - id: production-host-serves-production-instance
+    severity: error
+    applies_to: [sudo]
+    result: fail
+    finding: >-
+      The HTML title served at the production hostname is
+      "staging.unimelb-sudo.cloud.edu.au", consistent with the certificate.
+      The production name appears to front a staging deployment.
+  - id: errors-use-rfc9457-problem-details
+    severity: warn
+    applies_to: [sudo, minerva-access-rest]
+    result: fail
+    finding: >-
+      Three surfaces, three error conventions, none of them Problem Details.
+      See errors/university-of-melbourne-errors.yml.
+  - id: error-status-distinguishable-at-http-layer
+    severity: warn
+    applies_to: [minerva-access-oai]
+    result: fail
+    finding: >-
+      OAI-PMH returns HTTP 200 for protocol errors. Specification-correct, but
+      it means a harvester that checks status codes rather than parsing the
+      envelope cannot tell a failed harvest from a good one.
+  - id: rate-limit-signalled
+    severity: warn
+    applies_to: [sudo, minerva-access-rest]
+    result: fail
+    finding: >-
+      No RateLimit-* headers, no Retry-After, no published quota on any
+      surface. The repository rate-limits/ artifact records this as unknown
+      rather than unlimited.
+  - id: cors-scoped
+    severity: info
+    applies_to: [sudo]
+    result: pass-with-note
+    finding: >-
+      access-control-allow-origin: * with Access-Control-Allow-Credentials:
+      false. Correct for an open read API; noted because the same host also
+      sets a Django sessionid cookie on anonymous requests.
+  - id: availability-consistent-across-collections
+    severity: error
+    applies_to: [sudo]
+    result: fail
+    finding: >-
+      /api/v2/categories timed out at 60s while sibling collections answered
+      in the same minute. Repeated across two attempts.
+  - id: contract-attributed-to-its-actual-operator
+    severity: error
+    applies_to: [all]
+    result: pass
+    finding: >-
+      No vendor contract is saved in this repository. melbourne.figshare.com,
+      spatialdata-uom.opendata.arcgis.com and sso.unimelb.edu.au are recorded
+      as x-operator: tenant relationships with no vendor specification copied
+      under the University's slug.
+  - id: soft-404-not-credited-as-a-surface
+    severity: error
+    applies_to: [findanexpert]
+    result: pass
+    finding: >-
+      findanexpert.unimelb.edu.au/api returns HTTP 200 with a Vue SPA shell.
+      Recorded in errors/ as a soft-404 and deliberately not listed as an API.

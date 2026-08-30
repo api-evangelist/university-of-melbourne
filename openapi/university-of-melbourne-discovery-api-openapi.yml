@@ -1,0 +1,81 @@
+openapi: 3.2.0
+info:
+  title: University Of Melbourne Discovery API
+  x-operator: institution
+  x-refined-note:
+  - x-provenance differs across the merged source definitions and was not carried
+  - x-software differs across the merged source definitions and was not carried
+  version: '1.0'
+  description: 'Operations tagged Discovery across 2 of this provider''s published API definitions: university-of-melbourne-minerva-access-dspace-openapi.yml, university-of-melbourne-sudo-geonode-openapi.yml. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://minerva-access.unimelb.edu.au/server/api
+  description: Public hostname
+- url: https://rest.mars-prod.its.unimelb.edu.au/server/api
+  description: Origin hostname the service advertises for itself in its own root document (dspaceServer). Also verified 200 on 2026-08-19.
+- url: https://sudo.eresearch.unimelb.edu.au/api/v2
+  description: Production hostname (see TLS defect in info.description)
+tags:
+- name: Discovery
+  description: HAL root document
+paths:
+  /:
+    get:
+      tags:
+      - Discovery
+      summary: HAL root document
+      description: Returns the DSpace root resource — deployment identity plus a HAL `_links` map of every available endpoint. Verified 200 `application/hal+json`, 10,434 bytes, on 2026-08-19.
+      operationId: getRoot
+      responses:
+        '200':
+          description: Root resource
+          content:
+            application/hal+json:
+              schema:
+                $ref: '#/components/schemas/Root'
+              example:
+                dspaceUI: https://rest.mars-prod.its.unimelb.edu.au
+                dspaceName: The University of Melbourne Library Digital Repository
+                dspaceServer: https://rest.mars-prod.its.unimelb.edu.au/server
+                dspaceVersion: DSpace 7.6
+                type: root
+    servers:
+    - url: https://minerva-access.unimelb.edu.au/server/api
+      description: Public hostname
+    - url: https://rest.mars-prod.its.unimelb.edu.au/server/api
+      description: Origin hostname the service advertises for itself in its own root document (dspaceServer). Also verified 200 on 2026-08-19.
+components:
+  schemas:
+    Root:
+      type: object
+      required:
+      - dspaceName
+      - dspaceServer
+      - dspaceVersion
+      - type
+      properties:
+        dspaceUI:
+          type: string
+          format: uri
+        dspaceName:
+          type: string
+        dspaceServer:
+          type: string
+          format: uri
+        dspaceVersion:
+          type: string
+          example: DSpace 7.6
+        type:
+          type: string
+          example: root
+        _links:
+          type: object
+          description: HAL link map; ~60 relations observed on 2026-08-19
+          additionalProperties:
+            type: object
+            properties:
+              href:
+                type: string
+                format: uri
+x-refined-from:
+- university-of-melbourne-minerva-access-dspace-openapi.yml
+- university-of-melbourne-sudo-geonode-openapi.yml

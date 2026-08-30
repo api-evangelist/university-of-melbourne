@@ -1,0 +1,254 @@
+{
+  "dspaceUI": "https://rest.mars-prod.its.unimelb.edu.au",
+  "dspaceName": "The University of Melbourne Library Digital Repository",
+  "dspaceServer": "https://rest.mars-prod.its.unimelb.edu.au/server",
+  "dspaceVersion": "DSpace 7.6",
+  "type": "root",
+  "_links": {
+    "actuator": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/actuator"
+    },
+    "atmire-versions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/atmire-versions"
+    },
+    "atmirevaluepair-byCountry": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/atmirevaluepair/search/byCountry"
+    },
+    "atmirevaluepairs": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/atmirevaluepairs"
+    },
+    "authn": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/authn"
+    },
+    "authorityvalues": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/authorityvalues"
+    },
+    "authorizations": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/authz/authorizations"
+    },
+    "bitstreamformats": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/bitstreamformats"
+    },
+    "bitstreams": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/bitstreams"
+    },
+    "browses": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/discover/browses"
+    },
+    "bulkaccessconditionoptions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/bulkaccessconditionoptions"
+    },
+    "bundles": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/bundles"
+    },
+    "citationsources": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/integration/citationsources"
+    },
+    "citationvalues": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/integration/citationvalues"
+    },
+    "claimedtasks": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/workflow/claimedtasks"
+    },
+    "claimedtasks-search": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/workflow/claimedtasks/search"
+    },
+    "collections": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/collections"
+    },
+    "communities": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/communities"
+    },
+    "discover": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/discover"
+    },
+    "dso": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/dso/find{?uuid}",
+      "templated": true
+    },
+    "entitytypes": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/entitytypes"
+    },
+    "eperson-registration": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/eperson/registrations"
+    },
+    "epersons": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/eperson/epersons"
+    },
+    "externalsources": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/integration/externalsources"
+    },
+    "features": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/authz/features"
+    },
+    "feedbacks": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/tools/feedbacks"
+    },
+    "groups": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/eperson/groups"
+    },
+    "identifiers": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/pid/identifiers"
+    },
+    "itemrequests": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/tools/itemrequests"
+    },
+    "items": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/items"
+    },
+    "itemtemplates": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/itemtemplates"
+    },
+    "metadatafields": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/metadatafields"
+    },
+    "metadataschemas": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/metadataschemas"
+    },
+    "oidc": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/authn"
+    },
+    "pid": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/pid/find{?id}",
+      "templated": true
+    },
+    "pooltasks": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/workflow/pooltasks"
+    },
+    "pooltasks-search": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/workflow/pooltasks/search"
+    },
+    "potential-duplicate-records": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/duplicatecheck/potential-duplicate-records"
+    },
+    "predefinedreports": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/predefinedreports"
+    },
+    "processes": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/system/processes"
+    },
+    "properties": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/properties"
+    },
+    "registrations": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/eperson/registrations"
+    },
+    "relationships": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/relationships"
+    },
+    "relationshiptypes": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/relationshiptypes"
+    },
+    "resourcepolicies": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/authz/resourcepolicies"
+    },
+    "resourcepolicies-search": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/authz/resourcepolicies/search"
+    },
+    "saveditemlists": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/tools/saveditemlists"
+    },
+    "scripts": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/system/scripts"
+    },
+    "searchreports": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/searchreports"
+    },
+    "searchterms": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/searchterms"
+    },
+    "self": {
+      "href": "https://minerva-access.unimelb.edu.au/server/api"
+    },
+    "sites": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/sites"
+    },
+    "statistics": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics"
+    },
+    "statlets": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/statlets"
+    },
+    "storagereports": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/storagereports"
+    },
+    "submissionaccessoptions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissionaccessoptions"
+    },
+    "submissioncclicenseUrls": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissioncclicenseUrls"
+    },
+    "submissioncclicenseUrls-search": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissioncclicenseUrls/search"
+    },
+    "submissioncclicenses": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissioncclicenses"
+    },
+    "submissiondefinitions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissiondefinitions"
+    },
+    "submissionforms": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissionforms"
+    },
+    "submissionsections": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissionsections"
+    },
+    "submissionuploads": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/submissionuploads"
+    },
+    "subscriptions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/subscriptions"
+    },
+    "subscriptions-search": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/subscriptions/search"
+    },
+    "supervisionorders": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/core/supervisionorders"
+    },
+    "systemwidealerts": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/system/systemwidealerts"
+    },
+    "usagereports": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/usagereports"
+    },
+    "usagestatisticstables": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/usagestatisticstables"
+    },
+    "usagestatisticstablesearchlist-config": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/usagestatisticstablesearchlist/config"
+    },
+    "usagestatisticstablesearchlists": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/statistics/usagestatisticstablesearchlists"
+    },
+    "versionhistories": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/versioning/versionhistories"
+    },
+    "versions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/versioning/versions"
+    },
+    "vocabularies": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/submission/vocabularies"
+    },
+    "vocabularyEntryDetails": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/submission/vocabularyEntryDetails"
+    },
+    "vocabularyEntryDetails-search": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/submission/vocabularyEntryDetails/search"
+    },
+    "workflowactions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/workflowactions"
+    },
+    "workflowdefinitions": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/workflowdefinitions"
+    },
+    "workflowitems": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/workflow/workflowitems"
+    },
+    "workflowsteps": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/config/workflowsteps"
+    },
+    "workspaceitems": {
+      "href": "https://rest.mars-prod.its.unimelb.edu.au/server/api/submission/workspaceitems"
+    }
+  }
+}

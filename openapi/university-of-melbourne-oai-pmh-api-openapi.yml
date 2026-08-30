@@ -1,0 +1,119 @@
+openapi: 3.2.0
+info:
+  title: University of Melbourne — Minerva Access 2.0 Interface OAI PMH API
+  version: '2.0'
+  description: 'OAI-PMH 2.0 harvesting interface for Minerva Access, the University of Melbourne Library Digital Repository. This is an institution-operated metadata surface: the endpoint lives on `minerva-access.unimelb.edu.au`, the Identify response names the repository `The University of Melbourne Library Digital Repository`, the repository identifier is `jupiter.its.unimelb.edu.au` and the admin contact is `repository-admin@unimelb.edu.au`.
+
+    It is also the strongest single piece of evidence that the University does its own engineering on top of DSpace rather than merely running it: of the fourteen metadata formats advertised, two are institution-specific — `umbl` (namespace `http://www.dspace.org/xmlns/dspace/umbl`, University of Melbourne Library) and `trove` (namespace `http://trove.nla.gov.au/oai/uom`, a crosswalk built for harvesting into the National Library of Australia''s Trove under a `uom` path). Neither ships with stock DSpace.
+
+    DERIVED from live probes on 2026-08-19. The University publishes no OpenAPI for this endpoint; OAI-PMH is a query-parameter protocol and this document describes it as one operation with a `verb` parameter, which is how the protocol actually works.'
+  contact:
+    name: Minerva Access repository administration
+    email: repository-admin@unimelb.edu.au
+    url: https://minerva-access.unimelb.edu.au/
+  x-operator: institution
+  x-software: DSpace 7.6 OAI-PMH module
+  x-provenance:
+    generated: '2026-08-19'
+    method: derived
+    source: Live probes of https://minerva-access.unimelb.edu.au/server/oai/request with verb=Identify, verb=ListMetadataFormats, verb=ListSets and verb=Bogus on 2026-08-19; all returned HTTP 200 text/xml.
+servers:
+- url: https://minerva-access.unimelb.edu.au/server/oai
+tags:
+- name: OAI-PMH
+  description: Open Archives Initiative Protocol for Metadata Harvesting 2.0
+paths:
+  /request:
+    get:
+      tags:
+      - OAI-PMH
+      summary: OAI-PMH request
+      description: 'Single OAI-PMH entry point. The protocol dispatches on the `verb` query parameter. All responses are `text/xml` with HTTP 200 — including protocol errors, which are carried in an `<error code="...">` element inside the envelope rather than as an HTTP status. Verified on 2026-08-19: `Identify` (1,381 bytes), `ListMetadataFormats` (3,492 bytes, 14 formats), `ListSets` (9,608 bytes), and `verb=Bogus` returning HTTP 200 with `<error code="badVerb">Illegal verb</error>`.'
+      operationId: oaiRequest
+      parameters:
+      - name: verb
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - Identify
+          - ListMetadataFormats
+          - ListSets
+          - ListIdentifiers
+          - ListRecords
+          - GetRecord
+      - name: metadataPrefix
+        in: query
+        required: false
+        description: One of the 14 prefixes advertised by ListMetadataFormats. See vocabulary/university-of-melbourne-oai-metadata-vocabulary.yml.
+        schema:
+          type: string
+          enum:
+          - oai_dc
+          - qdc
+          - dim
+          - mods
+          - mets
+          - didl
+          - ore
+          - rdf
+          - marc
+          - xoai
+          - etdms
+          - uketd_dc
+          - umbl
+          - trove
+      - name: identifier
+        in: query
+        required: false
+        description: OAI identifier, e.g. oai:jupiter.its.unimelb.edu.au:11343/1234
+        schema:
+          type: string
+      - name: set
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: until
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: resumptionToken
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OAI-PMH envelope. Carries either the requested payload or an `<error>` element; the HTTP status is 200 either way.
+          content:
+            text/xml:
+              schema:
+                type: string
+                format: xml
+              examples:
+                identify:
+                  summary: verb=Identify (verified 2026-08-19)
+                  externalValue: ../examples/university-of-melbourne-oai-pmh-identify-example.xml
+                badVerb:
+                  summary: verb=Bogus — HTTP 200 with a protocol-level error
+                  value: <OAI-PMH ...><error code="badVerb">Illegal verb</error></OAI-PMH>
+x-repository-identity:
+  repositoryName: The University of Melbourne Library Digital Repository
+  baseURL: https://minerva-access.unimelb.edu.au/server/oai/request
+  protocolVersion: '2.0'
+  adminEmail: repository-admin@unimelb.edu.au
+  earliestDatestamp: '1995-11-30T13:00:00Z'
+  deletedRecord: transient
+  granularity: YYYY-MM-DDThh:mm:ssZ
+  repositoryIdentifier: jupiter.its.unimelb.edu.au
+  sampleIdentifier: oai:jupiter.its.unimelb.edu.au:11343/1234
