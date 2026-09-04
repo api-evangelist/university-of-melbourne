@@ -53,7 +53,7 @@ accessModel:
     Minerva Access REST and OAI-PMH endpoints all answered anonymous requests
     with HTTP 200 on 2026-08-19. There is no sign-up, no key and no plan —
     the surfaces are open, they are simply not advertised.
-position: Provider
+position: Producing
 access: Public
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-melbourne.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/apis.yml
