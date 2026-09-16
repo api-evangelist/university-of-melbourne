@@ -2,27 +2,21 @@ aid: university-of-melbourne
 name: University of Melbourne
 x-type: university
 x-category: Public Research University
-description: >-
-  The University of Melbourne is Australia's leading research university, a
-  Group of Eight member founded in 1853 and ranked in the world top 25. Its
-  programmable footprint is small, unmarketed and genuinely its own in two
-  places — which is more than most of this cohort can say. The institution
-  operates a public, unauthenticated JSON API over 7,417 spatial datasets in
-  the Spatial Urban Data Observatory (GeoNode, on unimelb.edu.au), and it runs
-  Minerva Access — a self-hosted DSpace 7.6 repository on its own ITS
-  infrastructure — exposing both a HAL+JSON REST API and an OAI-PMH 2.0
-  harvesting endpoint whose fourteen metadata formats include two the Library
-  built itself (`umbl`, and a `trove` crosswalk for the National Library of
-  Australia). It also operates its own Shibboleth SAML 2.0 identity provider,
-  registered in the Australian Access Federation and reachable as public
-  metadata. None of these is documented as a product: there is no developer
-  portal, no OpenAPI, no changelog, no status page, no rate-limit signal and
-  no support channel for any of them, and the University publishes no
-  machine-readable contract for anything it runs. Everything else that looks
-  like a University of Melbourne API is a tenancy — Melbourne Data on
-  Figshare, the open spatial portal on Esri ArcGIS Hub, web SSO on Okta, the
-  internal API programme on Boomi. Those relationships are recorded here with
-  `x-operator: tenant` and no vendor contract is stored under this slug.
+description: 'The University of Melbourne is Australia''s leading research university, a Group of Eight
+  member founded in 1853 and ranked in the world top 25. Its programmable footprint is small, unmarketed
+  and genuinely its own in two places — which is more than most of this cohort can say. The institution
+  operates a public, unauthenticated JSON API over 7,417 spatial datasets in the Spatial Urban Data Observatory
+  (GeoNode, on unimelb.edu.au), and it runs Minerva Access — a self-hosted DSpace 7.6 repository on its
+  own ITS infrastructure — exposing both a HAL+JSON REST API and an OAI-PMH 2.0 harvesting endpoint whose
+  fourteen metadata formats include two the Library built itself (`umbl`, and a `trove` crosswalk for
+  the National Library of Australia). It also operates its own Shibboleth SAML 2.0 identity provider,
+  registered in the Australian Access Federation and reachable as public metadata. None of these is documented
+  as a product: there is no developer portal, no OpenAPI, no changelog, no status page, no rate-limit
+  signal and no support channel for any of them, and the University publishes no machine-readable contract
+  for anything it runs. Everything else that looks like a University of Melbourne API is a tenancy — Melbourne
+  Data on Figshare, the open spatial portal on Esri ArcGIS Hub, web SSO on Okta, the internal API programme
+  on Boomi. Those relationships are recorded here with `x-operator: tenant` and no vendor contract is
+  stored under this slug.'
 type: Index
 deliveryModel:
   model: saas
@@ -45,40 +39,37 @@ accessModel:
   label: Free
   confidence: high
   source:
-    - probed
+  - probed
   generated: '2026-08-19'
   method: probed
-  notes: >-
-    Revised from public:false. The Spatial Urban Data Observatory API and the
-    Minerva Access REST and OAI-PMH endpoints all answered anonymous requests
-    with HTTP 200 on 2026-08-19. There is no sign-up, no key and no plan —
-    the surfaces are open, they are simply not advertised.
+  notes: Revised from public:false. The Spatial Urban Data Observatory API and the Minerva Access REST
+    and OAI-PMH endpoints all answered anonymous requests with HTTP 200 on 2026-08-19. There is no sign-up,
+    no key and no plan — the surfaces are open, they are simply not advertised.
 position: Producing
 access: Public
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-melbourne.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/apis.yml
 tags:
-  - University
-  - Higher Education
-  - Education
-  - Australia
-  - Group of Eight
-  - Research
-  - Research Data
-  - Research Repository
-  - Open Data
-  - Geospatial
-  - Identity Federation
-  - Library
+- University
+- Higher Education
+- Education
+- Australia
+- Group of Eight
+- Research
+- Research Data
+- Research Repository
+- Open Data
+- Geospatial
+- Identity Federation
+- Library
 created: '2026-06-03'
-modified: '2026-08-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: university-of-melbourne:shibboleth-identity-provider
   name: Shibboleth Identity Provider — SAML 2.0 Metadata
   x-operator: institution
-  description: >-
-    The University's own Shibboleth identity provider, entityID https://idp.unimelb.edu.au/idp/shibboleth,
+  description: The University's own Shibboleth identity provider, entityID https://idp.unimelb.edu.au/idp/shibboleth,
     serving public SAML 2.0 metadata at that URL (verified 200 application/xml, 2026-08-19) with an IDPSSODescriptor,
     scope unimelb.edu.au and OrganizationName "The University of Melbourne". Registered in the Australian
     Access Federation aggregate at md.aaf.edu.au alongside ten other unimelb.edu.au entities (Mediaflux,
@@ -102,15 +93,14 @@ apis:
 - aid: university-of-melbourne:melbourne-data-figshare
   name: Melbourne Data — Research Data Repository (Figshare tenancy)
   x-operator: tenant
-  description: >-
-    TENANT RELATIONSHIP, recorded deliberately and with no contract saved. melbourne.figshare.com is the
-    University of Melbourne's research data repository, registered with DataCite as client UNIMELB.REPO1
+  description: 'TENANT RELATIONSHIP, recorded deliberately and with no contract saved. melbourne.figshare.com
+    is the University of Melbourne''s research data repository, registered with DataCite as client UNIMELB.REPO1
     ("University of Melbourne data repository", clientType repository, active since 2020-05-14, url https://melbourne.figshare.com/).
-    The data, the DOIs and the curation are the University's; the platform and its API contract belong
+    The data, the DOIs and the curation are the University''s; the platform and its API contract belong
     to Figshare (Digital Science). The generic api.figshare.com/v2 specification is NOT stored under this
     slug — that spec was attributed to 25 institutions in the June 2026 cohort and is the exact defect
     this pipeline exists to prevent. Probed 2026-08-19: HTTP 202 with an AWS WAF JavaScript challenge,
-    i.e. bot-challenged and therefore live.
+    i.e. bot-challenged and therefore live.'
   humanURL: https://melbourne.figshare.com/
   tags:
   - Research Data
@@ -124,13 +114,12 @@ apis:
 - aid: university-of-melbourne:spatial-open-data-arcgis-hub
   name: Open Spatial Data Portal (Esri ArcGIS Hub tenancy)
   x-operator: tenant
-  description: >-
-    TENANT RELATIONSHIP. An Esri ArcGIS Hub site publishing University of Melbourne campus GIS layers
-    — building, road and tree-canopy footprints. Verified live 2026-08-19: the site returned 200, the
-    DCAT-US 1.1 catalog feed at /api/feed/dcat-us/1.1.json returned 200 with 96,844 bytes of dcat:Catalog,
-    and the OGC API Records endpoint at /api/search/v1 returned 200. Both feeds are generated by ArcGIS
-    Hub for every customer; the datasets are Melbourne's, the contract is Esri's, so nothing is saved
-    under this slug. Distinct from SUDO, which the University runs itself.
+  description: 'TENANT RELATIONSHIP. An Esri ArcGIS Hub site publishing University of Melbourne campus
+    GIS layers — building, road and tree-canopy footprints. Verified live 2026-08-19: the site returned
+    200, the DCAT-US 1.1 catalog feed at /api/feed/dcat-us/1.1.json returned 200 with 96,844 bytes of
+    dcat:Catalog, and the OGC API Records endpoint at /api/search/v1 returned 200. Both feeds are generated
+    by ArcGIS Hub for every customer; the datasets are Melbourne''s, the contract is Esri''s, so nothing
+    is saved under this slug. Distinct from SUDO, which the University runs itself.'
   baseURL: https://spatialdata-uom.opendata.arcgis.com/api/search/v1
   humanURL: https://spatialdata-uom.opendata.arcgis.com/
   tags:
@@ -148,12 +137,11 @@ apis:
 - aid: university-of-melbourne:sso-okta
   name: University SSO — OpenID Connect Discovery (Okta tenancy)
   x-operator: tenant
-  description: >-
-    TENANT RELATIONSHIP. sso.unimelb.edu.au is an Okta Identity Cloud tenancy running under a University
-    vanity hostname. The OpenID Connect discovery document and the RFC 8414 authorization-server metadata
-    both returned 200 on 2026-08-19, with issuer https://sso.unimelb.edu.au and endpoints under /oauth2/v1/.
-    Okta operates the platform — grant_types_supported carries urn:okta:params:oauth:grant-type:otp and
-    Auth0 MFA grant URNs — while the University configures it. Client registration is not open; there
+  description: TENANT RELATIONSHIP. sso.unimelb.edu.au is an Okta Identity Cloud tenancy running under
+    a University vanity hostname. The OpenID Connect discovery document and the RFC 8414 authorization-server
+    metadata both returned 200 on 2026-08-19, with issuer https://sso.unimelb.edu.au and endpoints under
+    /oauth2/v1/. Okta operates the platform — grant_types_supported carries urn:okta:params:oauth:grant-type:otp
+    and Auth0 MFA grant URNs — while the University configures it. Client registration is not open; there
     is no developer sign-up. Recorded because a live, machine-readable identity surface under the institution's
     own domain is a real fact about it, and credited to Okta because the contract is Okta's.
   humanURL: https://sso.unimelb.edu.au/.well-known/openid-configuration
@@ -178,14 +166,13 @@ apis:
 - aid: university-of-melbourne:boomi-internal-api-portal
   name: Internal API Management Programme (Boomi tenancy) — Gated
   x-operator: tenant
-  description: >-
-    TENANT RELATIONSHIP, and a weak one. The University of Melbourne runs a Boomi-based internal API management
-    programme and developer portal for staff and students. It is gated behind University authentication:
-    no public hostname, base URL, documentation or sign-up could be found on any unimelb.edu.au surface.
-    The ONLY evidence is Boomi's own customer case study, which is vendor marketing, not an institutional
-    surface — it is typed `Blog` below for exactly that reason and must never be read as documentation
-    the University publishes. Retained because a gated internal API programme is a true fact about the
-    institution's posture; recorded as tenant because the platform is Boomi's.
+  description: 'TENANT RELATIONSHIP, and a weak one. The University of Melbourne runs a Boomi-based internal
+    API management programme and developer portal for staff and students. It is gated behind University
+    authentication: no public hostname, base URL, documentation or sign-up could be found on any unimelb.edu.au
+    surface. The ONLY evidence is Boomi''s own customer case study, which is vendor marketing, not an
+    institutional surface — it is typed `Blog` below for exactly that reason and must never be read as
+    documentation the University publishes. Retained because a gated internal API programme is a true
+    fact about the institution''s posture; recorded as tenant because the platform is Boomi''s.'
   humanURL: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
   tags:
   - API Management
@@ -295,146 +282,138 @@ apis:
 x-coverage:
   state: covered
   reason: institution_operated_surfaces_verified
-  detail: >-
-    Real probes ran and found real institution-operated surfaces. Four are
-    the University's own: the SUDO GeoNode API (7,417 datasets, 200
-    unauthenticated), the Minerva Access DSpace 7.6 REST API (200, 223
-    communities), the Minerva Access OAI-PMH 2.0 endpoint (200, 14 metadata
-    formats, two of them locally built), and the Shibboleth SAML 2.0 identity
-    provider (200 XML, registered in AAF/eduGAIN). Four more are tenancies —
-    Figshare, Esri ArcGIS Hub, Okta and Boomi — recorded as relationships with
+  detail: 'Real probes ran and found real institution-operated surfaces. Four are the University''s own:
+    the SUDO GeoNode API (7,417 datasets, 200 unauthenticated), the Minerva Access DSpace 7.6 REST API
+    (200, 223 communities), the Minerva Access OAI-PMH 2.0 endpoint (200, 14 metadata formats, two of
+    them locally built), and the Shibboleth SAML 2.0 identity provider (200 XML, registered in AAF/eduGAIN).
+    Four more are tenancies — Figshare, Esri ArcGIS Hub, Okta and Boomi — recorded as relationships with
     no vendor contract saved.
 
-    What is thin here is DOCUMENTATION, not surface. The University publishes
-    no OpenAPI, no developer portal, no changelog, no status page, no
-    rate-limit signal and no support channel for anything it runs. It also
-    operates no public course-catalog or timetable API — handbook.unimelb.edu.au
-    is a bot-protected web application and MyTimetable is a vendor product with
-    no public endpoint.
+    What is thin here is DOCUMENTATION, not surface. The University publishes no OpenAPI, no developer
+    portal, no changelog, no status page, no rate-limit signal and no support channel for anything it
+    runs. It also operates no public course-catalog or timetable API — handbook.unimelb.edu.au is a bot-protected
+    web application and MyTimetable is a vendor product with no public endpoint.
 
-    Two probe limitations to declare honestly. First, the whole
-    *.unimelb.edu.au marketing and student web estate (www, about, students,
-    study, research, library, academicintegrity) sits behind Cloudflare bot
-    management and returned HTTP 403 "Just a moment..." to both curl and a
-    rendering fetcher; those pointers are recorded as live-but-unreadable, not
-    dead. Second, sudo.eresearch.unimelb.edu.au could only be reached with
-    certificate verification disabled because it presents a certificate for
-    staging.unimelb-sudo.cloud.edu.au. Neither limitation prevented the
-    substantive findings above.
+    Two probe limitations to declare honestly. First, the whole *.unimelb.edu.au marketing and student
+    web estate (www, about, students, study, research, library, academicintegrity) sits behind Cloudflare
+    bot management and returned HTTP 403 "Just a moment..." to both curl and a rendering fetcher; those
+    pointers are recorded as live-but-unreadable, not dead. Second, sudo.eresearch.unimelb.edu.au could
+    only be reached with certificate verification disabled because it presents a certificate for staging.unimelb-sudo.cloud.edu.au.
+    Neither limitation prevented the substantive findings above.'
   evidence:
-    - url: https://sudo.eresearch.unimelb.edu.au/api/v2/
-      status: 200
-    - url: https://sudo.eresearch.unimelb.edu.au/api/v2/datasets?page_size=1
-      status: 200
-    - url: https://sudo.eresearch.unimelb.edu.au/api/v2/openapi
-      status: 404
-    - url: https://minerva-access.unimelb.edu.au/server/api
-      status: 200
-    - url: https://minerva-access.unimelb.edu.au/server/api/core/communities?size=2
-      status: 200
-    - url: https://minerva-access.unimelb.edu.au/server/oai/request?verb=Identify
-      status: 200
-    - url: https://minerva-access.unimelb.edu.au/server/oai/request?verb=ListMetadataFormats
-      status: 200
-    - url: https://idp.unimelb.edu.au/idp/shibboleth
-      status: 200
-    - url: https://md.aaf.edu.au/aaf-metadata.xml
-      status: 200
-    - url: https://sso.unimelb.edu.au/.well-known/openid-configuration
-      status: 200
-    - url: https://sso.unimelb.edu.au/.well-known/oauth-authorization-server
-      status: 200
-    - url: https://spatialdata-uom.opendata.arcgis.com/api/feed/dcat-us/1.1.json
-      status: 200
-    - url: https://spatialdata-uom.opendata.arcgis.com/api/search/v1
-      status: 200
-    - url: https://api.datacite.org/clients/unimelb.repo1
-      status: 200
-    - url: https://api.ror.org/organizations?query=University%20of%20Melbourne
-      status: 200
-    - url: https://api.github.com/orgs/unimelb
-      status: 200
-    - url: https://melbourne.figshare.com/
-      status: 202
-    - url: https://findanexpert.unimelb.edu.au/api
-      status: 200
-    - url: https://www.unimelb.edu.au/
-      status: 403
-    - url: https://www.unimelb.edu.au/.well-known/security.txt
-      status: 403
-    - url: https://about.unimelb.edu.au/strategy/governance/compliance-obligations/privacy
-      status: 403
-    - url: https://api.unimelb.edu.au/
-      status: 0
-    - url: https://developer.unimelb.edu.au/
-      status: 0
-    - url: https://data.unimelb.edu.au/
-      status: 0
+  - url: https://sudo.eresearch.unimelb.edu.au/api/v2/
+    status: 200
+  - url: https://sudo.eresearch.unimelb.edu.au/api/v2/datasets?page_size=1
+    status: 200
+  - url: https://sudo.eresearch.unimelb.edu.au/api/v2/openapi
+    status: 404
+  - url: https://minerva-access.unimelb.edu.au/server/api
+    status: 200
+  - url: https://minerva-access.unimelb.edu.au/server/api/core/communities?size=2
+    status: 200
+  - url: https://minerva-access.unimelb.edu.au/server/oai/request?verb=Identify
+    status: 200
+  - url: https://minerva-access.unimelb.edu.au/server/oai/request?verb=ListMetadataFormats
+    status: 200
+  - url: https://idp.unimelb.edu.au/idp/shibboleth
+    status: 200
+  - url: https://md.aaf.edu.au/aaf-metadata.xml
+    status: 200
+  - url: https://sso.unimelb.edu.au/.well-known/openid-configuration
+    status: 200
+  - url: https://sso.unimelb.edu.au/.well-known/oauth-authorization-server
+    status: 200
+  - url: https://spatialdata-uom.opendata.arcgis.com/api/feed/dcat-us/1.1.json
+    status: 200
+  - url: https://spatialdata-uom.opendata.arcgis.com/api/search/v1
+    status: 200
+  - url: https://api.datacite.org/clients/unimelb.repo1
+    status: 200
+  - url: https://api.ror.org/organizations?query=University%20of%20Melbourne
+    status: 200
+  - url: https://api.github.com/orgs/unimelb
+    status: 200
+  - url: https://melbourne.figshare.com/
+    status: 202
+  - url: https://findanexpert.unimelb.edu.au/api
+    status: 200
+  - url: https://www.unimelb.edu.au/
+    status: 403
+  - url: https://www.unimelb.edu.au/.well-known/security.txt
+    status: 403
+  - url: https://about.unimelb.edu.au/strategy/governance/compliance-obligations/privacy
+    status: 403
+  - url: https://api.unimelb.edu.au/
+    status: 0
+  - url: https://developer.unimelb.edu.au/
+    status: 0
+  - url: https://data.unimelb.edu.au/
+    status: 0
 common:
-  - type: Website
-    url: https://www.unimelb.edu.au/
-  - type: OpenData
-    url: https://sudo.eresearch.unimelb.edu.au/
-  - type: ResearchRepository
-    url: https://minerva-access.unimelb.edu.au/
-  - type: IdentityFederation
-    url: https://idp.unimelb.edu.au/idp/shibboleth
-  - type: ResearchComputing
-    url: https://dashboard.hpc.unimelb.edu.au/
-  - type: CourseCatalog
-    url: https://handbook.unimelb.edu.au/
-  - type: AIPolicy
-    url: https://www.unimelb.edu.au/generative-ai-taskforce
-  - type: Authentication
-    url: https://sso.unimelb.edu.au/
-  - type: PrivacyPolicy
-    url: https://about.unimelb.edu.au/strategy/governance/compliance-obligations/privacy
-  - type: TermsOfService
-    url: https://policy.unimelb.edu.au/
-  - type: GitHub
-    url: https://github.com/unimelb
-  - type: LinkedIn
-    url: https://au.linkedin.com/school/university-of-melbourne/
-  - type: OpenAPI
-    url: openapi/university-of-melbourne-sudo-geonode-openapi.yml
-  - type: OpenAPI
-    url: openapi/university-of-melbourne-minerva-access-dspace-openapi.yml
-  - type: OpenAPI
-    url: openapi/university-of-melbourne-minerva-access-oai-pmh-openapi.yml
-  - type: JSONSchema
-    url: json-schema/university-of-melbourne-sudo-dataset.json
-  - type: JSONSchema
-    url: json-schema/university-of-melbourne-minerva-access-community.json
-  - type: Examples
-    url: examples/README.md
-  - type: Authentication
-    url: authentication/university-of-melbourne-authentication.yml
-  - type: Scopes
-    url: scopes/university-of-melbourne-scopes.yml
-  - type: Errors
-    url: errors/university-of-melbourne-errors.yml
-  - type: Conformance
-    url: conformance/university-of-melbourne-conformance.yml
-  - type: Vocabulary
-    url: vocabulary/university-of-melbourne-oai-metadata-vocabulary.yml
-  - type: Rules
-    url: rules/university-of-melbourne-rules.yml
-  - type: Lifecycle
-    url: lifecycle/university-of-melbourne-lifecycle.yml
-  - type: JSONLD
-    url: json-ld/university-of-melbourne-organization.jsonld
-  - type: VulnerabilityDisclosure
-    url: security/university-of-melbourne-vulnerability-disclosure.yml
-  - type: DomainSecurity
-    url: security/university-of-melbourne-domain-security.yml
-  - type: Plans
-    url: plans/university-of-melbourne-plans-pricing.yml
-  - type: RateLimits
-    url: rate-limits/university-of-melbourne-rate-limits.yml
-  - type: FinOps
-    url: finops/university-of-melbourne-finops.yml
-  - type: Review
-    url: review.yml
+- type: Website
+  url: https://www.unimelb.edu.au/
+- type: OpenData
+  url: https://sudo.eresearch.unimelb.edu.au/
+- type: ResearchRepository
+  url: https://minerva-access.unimelb.edu.au/
+- type: IdentityFederation
+  url: https://idp.unimelb.edu.au/idp/shibboleth
+- type: ResearchComputing
+  url: https://dashboard.hpc.unimelb.edu.au/
+- type: CourseCatalog
+  url: https://handbook.unimelb.edu.au/
+- type: AIPolicy
+  url: https://www.unimelb.edu.au/generative-ai-taskforce
+- type: Authentication
+  url: https://sso.unimelb.edu.au/
+- type: PrivacyPolicy
+  url: https://about.unimelb.edu.au/strategy/governance/compliance-obligations/privacy
+- type: TermsOfService
+  url: https://policy.unimelb.edu.au/
+- type: GitHub
+  url: https://github.com/unimelb
+- type: LinkedIn
+  url: https://au.linkedin.com/school/university-of-melbourne/
+- type: OpenAPI
+  url: openapi/_original/university-of-melbourne-sudo-geonode-openapi.yml
+- type: OpenAPI
+  url: openapi/_original/university-of-melbourne-minerva-access-dspace-openapi.yml
+- type: OpenAPI
+  url: openapi/_original/university-of-melbourne-minerva-access-oai-pmh-openapi.yml
+- type: JSONSchema
+  url: json-schema/university-of-melbourne-sudo-dataset.json
+- type: JSONSchema
+  url: json-schema/university-of-melbourne-minerva-access-community.json
+- type: Examples
+  url: examples/README.md
+- type: Authentication
+  url: authentication/university-of-melbourne-authentication.yml
+- type: Scopes
+  url: scopes/university-of-melbourne-scopes.yml
+- type: Errors
+  url: errors/university-of-melbourne-errors.yml
+- type: Conformance
+  url: conformance/university-of-melbourne-conformance.yml
+- type: Vocabulary
+  url: vocabulary/university-of-melbourne-oai-metadata-vocabulary.yml
+- type: Rules
+  url: rules/university-of-melbourne-rules.yml
+- type: Lifecycle
+  url: lifecycle/university-of-melbourne-lifecycle.yml
+- type: JSONLD
+  url: json-ld/university-of-melbourne-organization.jsonld
+- type: VulnerabilityDisclosure
+  url: security/university-of-melbourne-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/university-of-melbourne-domain-security.yml
+- type: Plans
+  url: plans/university-of-melbourne-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/university-of-melbourne-rate-limits.yml
+- type: FinOps
+  url: finops/university-of-melbourne-finops.yml
+- type: Review
+  url: review.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
