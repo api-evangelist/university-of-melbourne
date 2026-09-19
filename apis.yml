@@ -107,6 +107,12 @@ apis:
   - Research Repository
   - Figshare
   - DataCite
+  - Tenants
+  tags_raw:
+  - Research Data
+  - Research Repository
+  - Figshare
+  - DataCite
   - Tenant
   properties:
   - type: Registry
@@ -123,6 +129,13 @@ apis:
   baseURL: https://spatialdata-uom.opendata.arcgis.com/api/search/v1
   humanURL: https://spatialdata-uom.opendata.arcgis.com/
   tags:
+  - Open Data
+  - Geospatial
+  - GIS
+  - ArcGIS Hub
+  - DCAT
+  - Tenants
+  tags_raw:
   - Open Data
   - Geospatial
   - GIS
@@ -150,7 +163,7 @@ apis:
   - OpenID Connect
   - Okta
   - SSO
-  - Tenant
+  - Tenants
   tags_raw:
   - Authentication
   - OpenID Connect
@@ -175,6 +188,12 @@ apis:
     fact about the institution''s posture; recorded as tenant because the platform is Boomi''s.'
   humanURL: https://boomi.com/blog/university-of-melbourne-innovates-with-api-driven-strategy/
   tags:
+  - API Management
+  - Boomi
+  - Internal
+  - Gated
+  - Tenants
+  tags_raw:
   - API Management
   - Boomi
   - Internal
