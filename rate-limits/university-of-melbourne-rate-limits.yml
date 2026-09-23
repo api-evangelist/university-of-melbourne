@@ -4,21 +4,26 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: University of Melbourne
 providerId: university-of-melbourne
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-19'
 reconciled: false
 tags:
 - Education
 - Higher Education
 - University
 - Rate Limiting
-description: >-
-  University of Melbourne does not publish a unified public rate-limit table across its APIs. Open
-  metadata and harvesting endpoints (OAI-PMH, IIIF, library) may throttle large-scale
-  or automated harvesting; clients should harvest politely, honor Retry-After, and
-  contact the relevant service for bulk access.
-notes: Confirm per-service limits with each API's documentation; harvest responsibly.
+description: University of Melbourne does not publish a unified public rate-limit table across its APIs.
+  Open metadata and harvesting endpoints (OAI-PMH, IIIF, library) may throttle large-scale or automated
+  harvesting; clients should harvest politely, honor Retry-After, and contact the relevant service for
+  bulk access.
+notes: 'Confirmed by probe 2026-08-19: NO rate-limit signal of any kind is returned by the institution-operated
+  surfaces. GET https://sudo.eresearch.unimelb.edu.au/api/v2/ returned Allow: GET, HEAD, OPTIONS with
+  no RateLimit-* or Retry-After header, and neither the Minerva Access DSpace REST API nor the OAI-PMH
+  endpoint publishes a quota. Absence of a header is not a guarantee of no limit - harvest politely. The
+  IIIF and library interfaces referenced in the description above were NOT verified in the 2026-08-19
+  pass and should be treated as unconfirmed.'
 sources:
 - https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/apis.yml
+- 'probe 2026-08-19: response headers of https://sudo.eresearch.unimelb.edu.au/api/v2/'
 responseCodes:
   throttled: 429
 limits:

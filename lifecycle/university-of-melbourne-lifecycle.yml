@@ -1,0 +1,100 @@
+generated: '2026-08-19'
+method: probed
+source: Version strings read from live responses on 2026-08-19.
+description: >-
+  Versioning and lifecycle signals across the University of Melbourne's
+  surfaces. There is no institutional API versioning policy, no changelog, no
+  deprecation notice and no status page on any surface found. What exists is
+  software-version reporting from the packages the University runs, which is a
+  different thing and is recorded as such.
+versions:
+  - surface: Minerva Access DSpace REST API
+    x-operator: institution
+    version: DSpace 7.6
+    signal: >-
+      Self-reported in the root document as
+      "dspaceVersion": "DSpace 7.6". The root also advertises `atmire-versions`
+      and `atmirevaluepairs` link relations, indicating Atmire modules are
+      installed on top of the base distribution.
+    versioning_scheme: software release, not API version
+    deprecation_policy: none published
+  - surface: Minerva Access OAI-PMH
+    x-operator: institution
+    version: '2.0'
+    signal: <protocolVersion>2.0</protocolVersion> in the Identify response
+    versioning_scheme: protocol version, fixed by the OAI-PMH specification
+    deprecation_policy: >-
+      deletedRecord policy is `transient` — the repository does not guarantee
+      that deletions stay reported, which materially affects incremental
+      harvesters.
+    earliest_datestamp: '1995-11-30T13:00:00Z'
+  - surface: Spatial Urban Data Observatory (SUDO)
+    x-operator: institution
+    version: v2
+    signal: >-
+      Path-based, /api/v2/. This is GeoNode's own API version, not the
+      University's. No v1 was probed for; no sunset or deprecation header is
+      returned.
+    versioning_scheme: path segment
+    deprecation_policy: none published
+  - surface: Shibboleth Identity Provider
+    x-operator: institution
+    version: SAML 2.0
+    signal: urn:oasis:names:tc:SAML:2.0:metadata namespace on the EntityDescriptor
+    versioning_scheme: protocol version
+    deprecation_policy: >-
+      governed by Australian Access Federation metadata refresh cycles rather
+      than by the University directly
+  - surface: University SSO
+    x-operator: tenant
+    version: Okta oauth2/v1
+    signal: endpoints under /oauth2/v1/ in the discovery document
+    versioning_scheme: vendor path segment
+    deprecation_policy: Okta's, not the University's
+unversioned_link_relations:
+  description: >-
+    DSpace 7.6 advertised roughly 60 HAL link relations from its root document
+    on 2026-08-19. They are recorded here rather than expanded into OpenAPI
+    paths, because probing each one was out of scope and inventing paths from
+    link names is exactly the fabrication this pipeline exists to prevent.
+  observed:
+    - actuator
+    - atmire-versions
+    - atmirevaluepair-byCountry
+    - atmirevaluepairs
+    - authn
+    - authorityvalues
+    - authorizations
+    - bitstreamformats
+    - bitstreams
+    - browses
+    - bulkaccessconditionoptions
+    - bundles
+    - citationsources
+    - citationvalues
+    - claimedtasks
+    - claimedtasks-search
+    - collections
+    - communities
+    - discover
+    - dso
+    - entitytypes
+    - eperson-registration
+    - epersons
+    - externalsources
+    - features
+    - feedbacks
+    - groups
+    - identifiers
+    - itemrequests
+    - items
+    - itemtemplates
+    - metadatafields
+    - metadataschemas
+    - oidc
+    - pid
+    - pooltasks
+    - pooltasks-search
+    - potential-duplicate-records
+    - predefinedreports
+    - processes

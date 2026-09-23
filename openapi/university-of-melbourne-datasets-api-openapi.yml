@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: University of Melbourne — Spatial Urban Data Observatory (SUDO) Datasets API
+  title: University of Melbourne — Spatial Urban Data Observatory…
   version: v2
-  description: "Read surface of the Spatial Urban Data Observatory (SUDO), an institution-operated GeoNode deployment run by the University of Melbourne on its own `eresearch.unimelb.edu.au` host. SUDO is the one genuinely institution-operated, publicly callable API found in this profile: an unauthenticated JSON collection API over 7,417 spatial datasets, with OGC-style bounding-box geometry, DOIs, licences and download links on every record.\nThis document was DERIVED from live probes on 2026-08-19, not from a contract the University publishes. Only endpoints that returned HTTP 200 on that date are described. The University of Melbourne does not publish an OpenAPI description of SUDO; GeoNode's own `/api/v2/openapi` and `/api/v2/swagger.json` both return 404 on this deployment.\nKNOWN DEFECTS, recorded rather than smoothed over:\n  * TLS certificate mismatch — https://sudo.eresearch.unimelb.edu.au\n    presents a certificate whose subject and only SAN is\n    `staging.unimelb-sudo.cloud.edu.au`. Standard clients reject the\n    connection; every probe below required certificate verification to be\n    disabled. The page title served is also `staging.unimelb-sudo.cloud.edu.au`,\n    so the production hostname appears to be fronting a staging instance.\n  * Intermittent timeouts — `/api/v2/categories` timed out at 60s on\n    2026-08-19 while `/api/v2/datasets` and `/api/v2/` answered normally."
+  description: Read surface of the Spatial Urban Data Observatory (SUDO), an institution-operated GeoNode deployment run by the University of Melbourne on its own `eresearch.unimelb.edu.au` host.
   contact:
     name: University of Melbourne eResearch
     url: https://sudo.eresearch.unimelb.edu.au/about/
@@ -86,6 +86,41 @@ components:
       properties:
         detail:
           type: string
+    DatasetPage:
+      type: object
+      required:
+      - links
+      - total
+      - page
+      - page_size
+      - datasets
+      properties:
+        links:
+          type: object
+          properties:
+            next:
+              type:
+              - string
+              - 'null'
+              format: uri
+            previous:
+              type:
+              - string
+              - 'null'
+              format: uri
+        total:
+          type: integer
+          example: 7417
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
     Dataset:
       type: object
       description: Field set enumerated from a live record on 2026-08-19. Only fields actually present on that record are described; types are inferred from the observed values and are marked as such.
@@ -370,38 +405,3 @@ components:
           type:
           - string
           - 'null'
-    DatasetPage:
-      type: object
-      required:
-      - links
-      - total
-      - page
-      - page_size
-      - datasets
-      properties:
-        links:
-          type: object
-          properties:
-            next:
-              type:
-              - string
-              - 'null'
-              format: uri
-            previous:
-              type:
-              - string
-              - 'null'
-              format: uri
-        total:
-          type: integer
-          example: 7417
-        page:
-          type: integer
-          example: 1
-        page_size:
-          type: integer
-          example: 1
-        datasets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dataset'

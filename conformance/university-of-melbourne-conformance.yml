@@ -1,0 +1,158 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Live probes on 2026-08-19 of minerva-access.unimelb.edu.au,
+  idp.unimelb.edu.au, sso.unimelb.edu.au, sudo.eresearch.unimelb.edu.au,
+  spatialdata-uom.opendata.arcgis.com, md.aaf.edu.au and api.datacite.org.
+description: >-
+  Conformance of the University of Melbourne's surfaces against the Kin Score
+  `education` regime standards. Reward-only: a standard is marked
+  `conforms: true` ONLY where a live response carried the evidence quoted
+  below. Anything not observed is `null`, never false-by-assumption.
+
+  Note the operator column. Two of the four confirmed hits are on
+  institution-operated hosts; `datacite` is confirmed through a third-party
+  registry entry that names the University but points at a Figshare tenancy.
+standards:
+  - id: oai-pmh
+    name: OAI-PMH 2.0
+    conforms: true
+    x-operator: institution
+    location: https://minerva-access.unimelb.edu.au/server/oai/request
+    evidence: >-
+      verb=Identify returned HTTP 200 text/xml with
+      <protocolVersion>2.0</protocolVersion>,
+      <repositoryName>The University of Melbourne Library Digital Repository</repositoryName>,
+      <repositoryIdentifier>jupiter.its.unimelb.edu.au</repositoryIdentifier>,
+      <earliestDatestamp>1995-11-30T13:00:00Z</earliestDatestamp>.
+      verb=ListMetadataFormats returned 14 formats; verb=ListSets returned 200.
+      Captured verbatim at
+      examples/university-of-melbourne-oai-pmh-identify-example.xml.
+  - id: shibboleth
+    name: Shibboleth Identity Provider
+    conforms: true
+    x-operator: institution
+    location: https://idp.unimelb.edu.au/idp/shibboleth
+    evidence: >-
+      The entityID https://idp.unimelb.edu.au/idp/shibboleth resolves to HTTP
+      200 application/xml SAML EntityDescriptor with an IDPSSODescriptor,
+      <shibmd:Scope>unimelb.edu.au</shibmd:Scope> and
+      <OrganizationName>The University of Melbourne</OrganizationName>. The
+      same entity is present in the Australian Access Federation aggregate at
+      https://md.aaf.edu.au/aaf-metadata.xml (359 entities; 11 of them under
+      unimelb.edu.au hosts). AAF is an eduGAIN participant.
+      Captured at examples/university-of-melbourne-idp-saml-metadata-example.xml.
+  - id: saml
+    name: SAML 2.0 Metadata
+    conforms: true
+    x-operator: institution
+    location: https://idp.unimelb.edu.au/idp/shibboleth
+    evidence: >-
+      urn:oasis:names:tc:SAML:2.0:metadata EntityDescriptor with SSO endpoints
+      bound to urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect,
+      HTTP-POST and HTTP-POST-SimpleSign at
+      https://idp.unimelb.edu.au/idp/profile/SAML2/{Redirect,POST,POST-SimpleSign}/SSO.
+  - id: datacite
+    name: DataCite DOI registration
+    conforms: true
+    x-operator: tenant
+    location: https://api.datacite.org/clients/unimelb.repo1
+    evidence: >-
+      DataCite client UNIMELB.REPO1, name "University of Melbourne data
+      repository", clientType repository, isActive true, created 2020-05-14,
+      url https://melbourne.figshare.com/. A second client UNIMELB.REPO2 "The
+      University of Melbourne" is also registered. The DOIs are the
+      University's; the repository under them is a Figshare tenancy, so this
+      is credited as tenant, not institution.
+  - id: orcid
+    name: ORCID
+    conforms: null
+    evidence: >-
+      Not observable from any public surface probed. findanexpert.unimelb.edu.au
+      renders as a JavaScript application and /api returns the SPA shell with
+      HTTP 200 (a soft-404), so no researcher-profile API could be inspected
+      for ORCID linkage.
+  - id: crossref
+    name: Crossref
+    conforms: null
+    evidence: >-
+      Not observed. Minerva Access identifies its content with Handle System
+      identifiers under the 11343 prefix rather than Crossref DOIs.
+  - id: scim
+    name: SCIM 2.0
+    conforms: null
+    evidence: >-
+      Not observed. sso.unimelb.edu.au is an Okta tenancy and Okta supports
+      SCIM, but no SCIM endpoint is advertised in either the OpenID
+      Connect discovery document or the RFC 8414 authorization-server
+      metadata, and neither was reachable unauthenticated.
+  - id: lti
+    name: IMS Learning Tools Interoperability
+    conforms: null
+    evidence: >-
+      Not assessable. The University's LMS (Canvas) is a vendor tenancy with
+      no public surface; no LTI platform configuration or JWKS was reachable.
+  - id: oneroster
+    name: IMS OneRoster
+    conforms: null
+    evidence: Not observed on any public surface.
+  - id: ed-fi
+    name: Ed-Fi
+    conforms: null
+    evidence: Not observed. Ed-Fi is a K-12 standard and is out of scope for this institution.
+  - id: caliper
+    name: IMS Caliper Analytics
+    conforms: null
+    evidence: Not observed on any public surface.
+  - id: qti
+    name: IMS Question and Test Interoperability
+    conforms: null
+    evidence: Not observed on any public surface.
+adjacent-standards:
+  - id: openid-connect-discovery
+    conforms: true
+    x-operator: tenant
+    location: https://sso.unimelb.edu.au/.well-known/openid-configuration
+    evidence: >-
+      HTTP 200 application/json, issuer https://sso.unimelb.edu.au, scopes
+      openid/email/profile/address/phone/offline_access/groups. Okta-operated
+      (grant_types_supported includes urn:okta:params:oauth:grant-type:otp and
+      http://auth0.com/oauth/grant-type/mfa-otp), running under a University
+      vanity hostname — the configuration is the University's, the
+      implementation is Okta's.
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    x-operator: tenant
+    location: https://sso.unimelb.edu.au/.well-known/oauth-authorization-server
+    evidence: HTTP 200 application/json, 4,302 bytes.
+  - id: dcat-us-1.1
+    conforms: true
+    x-operator: tenant
+    location: https://spatialdata-uom.opendata.arcgis.com/api/feed/dcat-us/1.1.json
+    evidence: >-
+      HTTP 200 application/json, 96,844 bytes, "@type":"dcat:Catalog",
+      conformsTo https://project-open-data.cio.gov/v1.1/schema. Esri ArcGIS Hub
+      generates this feed for every Hub site; the datasets are Melbourne's, the
+      feed contract is Esri's.
+  - id: ogc-api-records
+    conforms: true
+    x-operator: tenant
+    location: https://spatialdata-uom.opendata.arcgis.com/api/search/v1
+    evidence: HTTP 200 application/json with a link-relation document (rel self / data / Collections).
+  - id: rfc9457-problem-details
+    conforms: false
+    x-operator: institution
+    location: https://minerva-access.unimelb.edu.au/server/api/core/communities/{uuid}
+    evidence: >-
+      404 returns a Spring Boot error envelope
+      {"timestamp","status","error","message","path"} with
+      Content-Type application/json, not application/problem+json. SUDO returns
+      {"detail":"Not found."} — also not Problem Details.
+  - id: rfc9116-security-txt
+    conforms: null
+    evidence: >-
+      https://www.unimelb.edu.au/.well-known/security.txt returned HTTP 403
+      from a Cloudflare bot-management interstitial ("Just a moment...") to
+      both curl and a rendering fetcher, so presence could not be determined
+      either way. This is a probe limitation, not a finding about the
+      University.

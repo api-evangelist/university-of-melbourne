@@ -1,12 +1,8 @@
 openapi: 3.2.0
 info:
-  title: University of Melbourne — Minerva Access Repository REST Core API
+  title: University of Melbourne — Minerva Access Repository REST…
   version: DSpace 7.6
-  description: 'Read surface of Minerva Access, the University of Melbourne Library''s institutional repository. The deployment is DSpace 7.6, self-hosted on the University''s own infrastructure — the service advertises itself as `https://rest.mars-prod.its.unimelb.edu.au/server` (its.unimelb.edu.au = University of Melbourne Information Technology Services) and the OAI-PMH Identify response names `jupiter.its.unimelb.edu.au` as the repository identifier with `repository-admin@unimelb.edu.au` as admin contact.
-
-    OPERATOR NOTE. DSpace is open-source software (LYRASIS), not a hosted vendor platform, and this instance runs on University hardware under a University hostname, so the operator is the institution. That is a different finding from `melbourne.figshare.com`, which is a Figshare tenancy and is recorded in apis.yml as `x-operator: tenant` with no contract saved here.
-
-    This document was DERIVED from live probes on 2026-08-19. The University does not publish an OpenAPI description of this API. Only endpoints that returned HTTP 200 on that date are described here; DSpace 7.6 exposes roughly 60 further HAL link relations from its root document, which are listed in `lifecycle/` rather than invented into paths.'
+  description: Read surface of Minerva Access, the University of Melbourne Library's institutional repository.
   contact:
     name: Minerva Access repository administration
     email: repository-admin@unimelb.edu.au
@@ -90,6 +86,21 @@ paths:
                 path: /server/api/core/communities/00000000-0000-0000-0000-000000000000
 components:
   schemas:
+    Page:
+      type: object
+      properties:
+        size:
+          type: integer
+          example: 2
+        totalElements:
+          type: integer
+          example: 223
+        totalPages:
+          type: integer
+          example: 112
+        number:
+          type: integer
+          example: 0
     Community:
       type: object
       properties:
@@ -155,21 +166,6 @@ components:
           type: string
         path:
           type: string
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-          example: 2
-        totalElements:
-          type: integer
-          example: 223
-        totalPages:
-          type: integer
-          example: 112
-        number:
-          type: integer
-          example: 0
     CommunityPage:
       type: object
       properties:

@@ -1,0 +1,84 @@
+generated: '2026-08-19'
+method: probed
+source: >-
+  Deliberate error requests issued on 2026-08-19 against each
+  institution-operated surface; the response bodies below are verbatim.
+description: >-
+  Error semantics observed on the University of Melbourne's institution-operated
+  APIs. Nothing here is documented by the University — these shapes were
+  discovered by asking each surface for something that does not exist. Three
+  different error conventions are in use across three surfaces, none of them
+  RFC 9457 Problem Details, and one of them (OAI-PMH) reports failure with
+  HTTP 200.
+surfaces:
+  - name: Spatial Urban Data Observatory (SUDO) API v2
+    x-operator: institution
+    convention: Django REST Framework detail envelope
+    problem_details: false
+    cases:
+      - request: 'GET https://sudo.eresearch.unimelb.edu.au/api/v2/datasets/999999999'
+        status: 404
+        content_type: application/json
+        body: '{"detail":"Not found."}'
+      - request: 'GET https://sudo.eresearch.unimelb.edu.au/api/v2/openapi'
+        status: 404
+        content_type: text/html; charset=utf-8
+        body: >-
+          GeoNode HTML 404 page (49,138 bytes). Recorded because it is the
+          answer to "does this institution publish a machine-readable contract
+          for its own API" — it does not. /api/v2/swagger.json is also 404.
+      - request: 'GET https://sudo.eresearch.unimelb.edu.au/api/v2/categories?page_size=2'
+        status: 0
+        detail: >-
+          Timed out with no bytes received after 60 seconds on 2026-08-19,
+          while /api/v2/ and /api/v2/datasets answered normally in the same
+          minute. Recorded as an availability defect, not as an error contract.
+      - request: 'TLS handshake to sudo.eresearch.unimelb.edu.au:443'
+        status: 0
+        detail: >-
+          Certificate subject CN=staging.unimelb-sudo.cloud.edu.au with
+          subjectAltName DNS:staging.unimelb-sudo.cloud.edu.au only. Any
+          standards-conformant client refuses the connection to the production
+          hostname. Every probe above required verification to be disabled.
+  - name: Minerva Access DSpace REST API
+    x-operator: institution
+    convention: Spring Boot error envelope
+    problem_details: false
+    cases:
+      - request: 'GET https://minerva-access.unimelb.edu.au/server/api/core/communities/00000000-0000-0000-0000-000000000000'
+        status: 404
+        content_type: application/json;charset=UTF-8
+        body: >-
+          {"timestamp":"2026-08-19T21:33:06.523+00:00","status":404,
+          "error":"Not Found","message":"An exception has occurred",
+          "path":"/server/api/core/communities/00000000-0000-0000-0000-000000000000"}
+        notes: >-
+          The `message` field is generic ("An exception has occurred") and
+          carries no actionable information; the `path` field echoes the
+          request path back to the caller.
+  - name: Minerva Access OAI-PMH
+    x-operator: institution
+    convention: OAI-PMH 2.0 in-envelope error element
+    problem_details: false
+    cases:
+      - request: 'GET https://minerva-access.unimelb.edu.au/server/oai/request?verb=Bogus'
+        status: 200
+        content_type: text/xml;charset=UTF-8
+        body: '<error code="badVerb">Illegal verb</error> inside the OAI-PMH envelope'
+        notes: >-
+          Correct per the OAI-PMH 2.0 specification, which mandates HTTP 200
+          with an in-envelope error. Flagged for consumers who status-check
+          rather than parse: a failed harvest here is indistinguishable from a
+          successful one at the HTTP layer.
+  - name: findanexpert.unimelb.edu.au
+    x-operator: unknown
+    convention: soft-404
+    problem_details: false
+    cases:
+      - request: 'GET https://findanexpert.unimelb.edu.au/api'
+        status: 200
+        content_type: text/html; charset=utf-8
+        body: >-
+          Vue single-page-application shell, 17,520 bytes. A 200 that is not a
+          resource. Recorded explicitly so no future pass credits this path as
+          an API surface.
