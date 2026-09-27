@@ -86,21 +86,6 @@ paths:
                 path: /server/api/core/communities/00000000-0000-0000-0000-000000000000
 components:
   schemas:
-    Page:
-      type: object
-      properties:
-        size:
-          type: integer
-          example: 2
-        totalElements:
-          type: integer
-          example: 223
-        totalPages:
-          type: integer
-          example: 112
-        number:
-          type: integer
-          example: 0
     Community:
       type: object
       properties:
@@ -151,21 +136,21 @@ components:
               href:
                 type: string
                 format: uri
-    Error:
+    Page:
       type: object
-      description: Spring Boot error envelope (not RFC 9457 Problem Details)
       properties:
-        timestamp:
-          type: string
-          format: date-time
-        status:
+        size:
           type: integer
-        error:
-          type: string
-        message:
-          type: string
-        path:
-          type: string
+          example: 2
+        totalElements:
+          type: integer
+          example: 223
+        totalPages:
+          type: integer
+          example: 112
+        number:
+          type: integer
+          example: 0
     CommunityPage:
       type: object
       properties:
@@ -186,3 +171,18 @@ components:
               href:
                 type: string
                 format: uri
+    Error:
+      type: object
+      description: Spring Boot error envelope (not RFC 9457 Problem Details)
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer
+        error:
+          type: string
+        message:
+          type: string
+        path:
+          type: string

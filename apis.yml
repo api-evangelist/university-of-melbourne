@@ -277,8 +277,8 @@ apis:
 - aid: university-of-melbourne:university-of-melbourne-oai-pmh-api
   name: University of Melbourne OAI PMH API
   description: Open Archives Initiative Protocol for Metadata Harvesting 2.0
-  humanURL: https://sudo.eresearch.unimelb.edu.au/developer/
-  baseURL: https://sudo.eresearch.unimelb.edu.au/api/v2
+  humanURL: https://minerva-access.unimelb.edu.au/
+  baseURL: https://minerva-access.unimelb.edu.au/server/oai/request
   tags:
   - OAI-PMH
   properties:
