@@ -81,46 +81,6 @@ paths:
                 detail: Not found.
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        detail:
-          type: string
-    DatasetPage:
-      type: object
-      required:
-      - links
-      - total
-      - page
-      - page_size
-      - datasets
-      properties:
-        links:
-          type: object
-          properties:
-            next:
-              type:
-              - string
-              - 'null'
-              format: uri
-            previous:
-              type:
-              - string
-              - 'null'
-              format: uri
-        total:
-          type: integer
-          example: 7417
-        page:
-          type: integer
-          example: 1
-        page_size:
-          type: integer
-          example: 1
-        datasets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Dataset'
     Dataset:
       type: object
       description: Field set enumerated from a live record on 2026-08-19. Only fields actually present on that record are described; types are inferred from the observed values and are marked as such.
@@ -405,3 +365,43 @@ components:
           type:
           - string
           - 'null'
+    DatasetPage:
+      type: object
+      required:
+      - links
+      - total
+      - page
+      - page_size
+      - datasets
+      properties:
+        links:
+          type: object
+          properties:
+            next:
+              type:
+              - string
+              - 'null'
+              format: uri
+            previous:
+              type:
+              - string
+              - 'null'
+              format: uri
+        total:
+          type: integer
+          example: 7417
+        page:
+          type: integer
+          example: 1
+        page_size:
+          type: integer
+          example: 1
+        datasets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Dataset'
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
