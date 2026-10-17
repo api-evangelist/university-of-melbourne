@@ -365,6 +365,11 @@ components:
           type:
           - string
           - 'null'
+    Error:
+      type: object
+      properties:
+        detail:
+          type: string
     DatasetPage:
       type: object
       required:
@@ -400,8 +405,3 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Dataset'
-    Error:
-      type: object
-      properties:
-        detail:
-          type: string
