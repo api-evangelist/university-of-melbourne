@@ -1,4 +1,4 @@
-# University of Melbourne (university-of-melbourne)
+# University of Melbourne
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,107 +64,157 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The University of Melbourne is Australia's leading research university, a Group of Eight member
-founded in 1853. Re-profiled on **2026-08-19** under the API Evangelist **university pipeline**,
-which settles **who operates each surface** before saving anything — because at a university almost
-every apparent API is a vendor contract running under the institution's name.
+The University of Melbourne is Australia's leading research university, a Group of Eight member founded in 1853 and ranked in the world top 25. Its programmable footprint is small, unmarketed and genuinely its own in two places — which is more than most of this cohort can say. The institution operates a public, unauthenticated JSON API over 7,417 spatial datasets in the Spatial Urban Data Observatory (GeoNode, on unimelb.edu.au), and it runs Minerva Access — a self-hosted DSpace 7.6 repository on its own ITS infrastructure — exposing both a HAL+JSON REST API and an OAI-PMH 2.0 harvesting endpoint whose fourteen metadata formats include two the Library built itself (`umbl`, and a `trove` crosswalk for the National Library of Australia). It also operates its own Shibboleth SAML 2.0 identity provider, registered in the Australian Access Federation and reachable as public metadata. None of these is documented as a product: there is no developer portal, no OpenAPI, no changelog, no status page, no rate-limit signal and no support channel for any of them, and the University publishes no machine-readable contract for anything it runs. Everything else that looks like a University of Melbourne API is a tenancy — Melbourne Data on Figshare, the open spatial portal on Esri ArcGIS Hub, web SSO on Okta, the internal API programme on Boomi. Those relationships are recorded here with `x-operator: tenant` and no vendor contract is stored under this slug.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/university-of-melbourne/refs/heads/main/apis.yml
+**Areas:** University · Higher Education · Education · Australia · Group of Eight · Research · Research Data · Research Repository · Open Data · Geospatial · Identity Federation · Library
 
-## Type
+## University of Melbourne on APIs.io
 
-`x-type: university` / `x-category: Public Research University` / Provider / Public
+Everything profiled for University of Melbourne is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/university-of-melbourne/](https://apis.io/providers/university-of-melbourne/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (9)
 
-University, Higher Education, Education, Australia, Group of Eight, Research, Research Data,
-Research Repository, Open Data, Geospatial, Identity Federation, Library
+- [Shibboleth Identity Provider — SAML 2.0 Metadata](https://apis.io/apis/university-of-melbourne/shibboleth-identity-provider/) — The University's own Shibboleth identity provider, entityID https://idp.unimelb.edu.au/idp/shibboleth, serving public SAML 2.0 metadata at that URL…
+- [Melbourne Data — Research Data Repository (Figshare tenancy)](https://apis.io/apis/university-of-melbourne/melbourne-data-figshare/) — TENANT RELATIONSHIP, recorded deliberately and with no contract saved. melbourne.figshare.com is the University of Melbourne's research data repository,…
+- [Open Spatial Data Portal (Esri ArcGIS Hub tenancy)](https://apis.io/apis/university-of-melbourne/spatial-open-data-arcgis-hub/) — TENANT RELATIONSHIP. An Esri ArcGIS Hub site publishing University of Melbourne campus GIS layers — building, road and tree-canopy footprints. Verified live…
+- [University SSO — OpenID Connect Discovery (Okta tenancy)](https://apis.io/apis/university-of-melbourne/sso-okta/) — TENANT RELATIONSHIP. sso.unimelb.edu.au is an Okta Identity Cloud tenancy running under a University vanity hostname. The OpenID Connect discovery document…
+- [Internal API Management Programme (Boomi tenancy) — Gated](https://apis.io/apis/university-of-melbourne/boomi-internal-api-portal/) — TENANT RELATIONSHIP, and a weak one. The University of Melbourne runs a Boomi-based internal API management programme and developer portal for staff and…
+- [University of Melbourne Core API](https://apis.io/apis/university-of-melbourne/university-of-melbourne-core-api/) — Repository content hierarchy
+- [University of Melbourne Datasets API](https://apis.io/apis/university-of-melbourne/university-of-melbourne-datasets-api/) — Spatial datasets held in the observatory
+- [University of Melbourne Discovery API](https://apis.io/apis/university-of-melbourne/university-of-melbourne-discovery-api/) — HAL root document
+- [University of Melbourne OAI PMH API](https://apis.io/apis/university-of-melbourne/university-of-melbourne-oai-pmh-api/) — Open Archives Initiative Protocol for Metadata Harvesting 2.0
 
-## Surfaces, by operator
+### Published properties
 
-Every entry in `apis.yml` carries an `x-operator`. Four are the institution's own; four are
-tenancies on someone else's platform, recorded as relationships with **no vendor contract saved
-under this slug**.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### `x-operator: institution` — the University runs these
+#### MCP servers (1)
 
-| Surface | Base URL | Verified 2026-08-19 |
-|---|---|---|
-| **Spatial Urban Data Observatory (SUDO)** — GeoNode, 7,417 spatial datasets, unauthenticated | `https://sudo.eresearch.unimelb.edu.au/api/v2` | 200, `total: 7417` |
-| **Minerva Access REST API** — self-hosted DSpace 7.6, 223 communities | `https://minerva-access.unimelb.edu.au/server/api` | 200 `application/hal+json` |
-| **Minerva Access OAI-PMH 2.0** — 14 metadata formats, two locally built | `https://minerva-access.unimelb.edu.au/server/oai/request` | 200 `text/xml` |
-| **Shibboleth Identity Provider** — SAML 2.0 metadata, registered in AAF/eduGAIN | `https://idp.unimelb.edu.au/idp/shibboleth` | 200 `application/xml` |
+Model Context Protocol servers that expose the API to agents.
 
-### `x-operator: tenant` — the University's data, someone else's contract
+- [Moved to /providers/university-of-melbourne/](https://apis.io/servers/university-of-melbourne/university-of-melbourne/)
 
-| Surface | Platform | Evidence |
-|---|---|---|
-| **Melbourne Data** `melbourne.figshare.com` | Figshare (Digital Science) | DataCite client `UNIMELB.REPO1` |
-| **Open Spatial Data Portal** `spatialdata-uom.opendata.arcgis.com` | Esri ArcGIS Hub | DCAT-US 1.1 feed + OGC API Records, both 200 |
-| **University SSO** `sso.unimelb.edu.au` | Okta Identity Cloud | OIDC discovery + RFC 8414 metadata, both 200 |
-| **Internal API programme** | Boomi | Vendor case study only — no institutional URL exists |
+#### JSON Schema (2)
 
-## What is actually notable here
+The data models the API reads and writes.
 
-1. **SUDO is real, and nobody has catalogued it.** An open, unauthenticated JSON API over 7,417
-   spatial datasets, run by the University on its own host. It is also **broken in two ways** we
-   record rather than smooth over: the TLS certificate is issued for
-   `staging.unimelb-sudo.cloud.edu.au` and matches no other name, so a conformant client cannot
-   connect; and `/api/v2/categories` times out at 60s while sibling collections answer normally.
-2. **The OAI-PMH endpoint proves institutional engineering.** Of fourteen metadata formats, two are
-   the University's own — `umbl` (University of Melbourne Library) and a `trove` crosswalk into the
-   National Library of Australia under a `uom` namespace path. Neither ships with stock DSpace.
-   That is the difference between running a package and operating a surface.
-3. **The identity federation is the find most university profiles miss.** A self-hosted Shibboleth
-   IdP with public SAML 2.0 metadata, registered in the Australian Access Federation alongside ten
-   other `unimelb.edu.au` entities. Institution-operated by definition, machine-readable, and
-   almost never listed anywhere.
-4. **No Figshare contract is stored here.** `api.figshare.com/v2` was attributed to 25 institutions
-   in the June 2026 cohort. Melbourne's Figshare relationship is recorded as a tenancy and the
-   vendor's specification stays in the vendor's repository.
+- [Minerva Access Community](https://apis.io/schemas/university-of-melbourne/university-of-melbourne-minerva-access-community/)
+- [SUDO Dataset](https://apis.io/schemas/university-of-melbourne/university-of-melbourne-sudo-dataset/)
 
-## What the University does not publish
+#### JSON-LD (2)
 
-No OpenAPI or any machine-readable contract for anything it runs (GeoNode's own `/api/v2/openapi`
-returns 404 on this deployment). No developer portal — `api.`, `developer.` and `data.unimelb.edu.au`
-do not resolve. No changelog, no status page, no rate-limit signal, no support channel for any
-surface. No public course-catalog or timetable API. Three surfaces use three different error
-conventions and none is RFC 9457; OAI-PMH reports failure with HTTP 200, which is
-specification-correct and worth knowing before you write a harvester.
+Linked-data contexts for the provider's vocabulary.
 
-**The three OpenAPI documents in `openapi/` are ours**, marked `method: derived`, built only from
-endpoints that returned 200 on 2026-08-19. They must never be read as contracts the University
-publishes.
+- [University Of Melbourne Context](https://apis.io/jsonld/university-of-melbourne/university-of-melbourne-context/)
+- [University Of Melbourne Organization Context](https://apis.io/jsonld/university-of-melbourne/university-of-melbourne-organization/)
 
-## Artifacts
+#### Examples (5)
 
-| Directory | What is in it | Method |
-|---|---|---|
-| `openapi/` + `openapi/_original/` | 3 derived contracts (SUDO, DSpace REST, OAI-PMH) | derived |
-| `json-schema/` | SUDO dataset, Minerva Access community | derived |
-| `examples/` | 8 verbatim live captures, each with its request and status | probed |
-| `conformance/` | `education` regime standards: **oai-pmh, shibboleth, saml** confirmed institution-side, **datacite** confirmed tenant-side | probed |
-| `authentication/` | per-surface auth posture, split by operator | probed |
-| `scopes/` | the Okta OIDC scope set — marked `x-operator: tenant` | probed |
-| `errors/` | three error conventions + the TLS and timeout defects + a soft-404 | probed |
-| `vocabulary/` | the 14 OAI-PMH metadata formats, local ones called out | probed |
-| `rules/` | 10 governance rules with the observed result for each | derived |
-| `lifecycle/` | version signals + ~60 unprobed DSpace link relations, listed not invented | probed |
-| `json-ld/` | organization record with ROR `01ej9dk98`, GRID, ISNI, Wikidata, Handle prefix 11343 | searched |
+Example requests and responses.
 
-## Coverage
+- [University Of Melbourne Arcgis Hub Ogc Records Example](https://apis.io/examples/university-of-melbourne/university-of-melbourne-arcgis-hub-ogc-records-example/)
+- [University Of Melbourne Minerva Access Communities Example](https://apis.io/examples/university-of-melbourne/university-of-melbourne-minerva-access-communities-example/)
+- [University Of Melbourne Minerva Access Root Example](https://apis.io/examples/university-of-melbourne/university-of-melbourne-minerva-access-root-example/)
+- [University Of Melbourne Sso Openid Configuration Example](https://apis.io/examples/university-of-melbourne/university-of-melbourne-sso-openid-configuration-example/)
+- [University Of Melbourne Sudo Datasets Example](https://apis.io/examples/university-of-melbourne/university-of-melbourne-sudo-datasets-example/)
 
-`x-coverage.state: covered`. Real probes ran and found real institution-operated surfaces. What is
-thin here is documentation, not surface. Two probe limitations are declared in `apis.yml`: the whole
-`*.unimelb.edu.au` marketing and student web estate sits behind Cloudflare bot management and
-returned HTTP 403 to every client tried (recorded as live-but-unreadable, never dead), and SUDO
-could only be reached with certificate verification disabled.
+#### Governance rules (1)
 
-## Timestamps
+Spectral rulesets for the provider's contracts.
 
-- Created: 2026-06-03
-- Modified: 2026-08-19
+- [University of Melbourne API Rules](https://apis.io/rules/university-of-melbourne/university-of-melbourne-rules/)
 
-## Maintainers
+#### Security (3)
 
-- Kin Lane — kin@apievangelist.com
+Authentication, trust centre, and vulnerability disclosure.
+
+- [University Of Melbourne Authentication](https://apis.io/security/university-of-melbourne/university-of-melbourne-authentication/)
+- [University Of Melbourne Domain Security](https://apis.io/security/university-of-melbourne/university-of-melbourne-domain-security/)
+- [University Of Melbourne Vulnerability Disclosure](https://apis.io/security/university-of-melbourne/university-of-melbourne-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [University Of Melbourne Scopes](https://apis.io/scopes/university-of-melbourne/university-of-melbourne-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [University Of Melbourne Plans Pricing](https://apis.io/plans/university-of-melbourne/university-of-melbourne-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [University Of Melbourne Rate Limits](https://apis.io/rate-limits/university-of-melbourne/university-of-melbourne-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [University Of Melbourne Finops](https://apis.io/finops/university-of-melbourne/university-of-melbourne-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.unimelb.edu.au/)
+- [Terms of service](https://policy.unimelb.edu.au/)
+- [Privacy policy](https://about.unimelb.edu.au/strategy/governance/compliance-obligations/privacy)
+
+## API Evangelist rating
+
+**Kin Score 29.6** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 65.0 |
+| Contract quality | 26.7 |
+| Contract governance | 33.3 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 15.8 |
+
+**Agent readiness 36.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | na |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 36.3** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/university-of-melbourne/](https://apis.io/providers/university-of-melbourne/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for University of Melbourne: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/university-of-melbourne/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
